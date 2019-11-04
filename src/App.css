@@ -1,3 +1,5 @@
+
+
 .app-wrapper {
   display: grid;
   grid-template-rows: 60px 1fr;
@@ -7,26 +9,5 @@
   "na co";
 }
 
-.header {
-grid-area: he;
-  background-color: #1fb8a2;
-}
 
-.header img {
-  width: 55px;
-}
 
-.content img {
-  width: 80%;
-  height: 255px;
-}
-
-.nav {
-grid-area: na;
-  background-color: #addef7;
-}
-
-.content {
-  grid-area: co;
-  background-color: #fffbe4;
-}
