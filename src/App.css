@@ -1,0 +1,32 @@
+.app-wrapper {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+  "he he"
+  "na co";
+}
+
+.header {
+grid-area: he;
+  background-color: #1fb8a2;
+}
+
+.header img {
+  width: 50px;
+}
+
+.content img {
+  width: 80%;
+  height: 200px;
+}
+
+.nav {
+grid-area: na;
+  background-color: #addef7;
+}
+
+.content {
+  grid-area: co;
+  background-color: #fffbe4;
+}
