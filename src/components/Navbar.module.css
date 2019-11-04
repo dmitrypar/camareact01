@@ -1,0 +1,13 @@
+.nav {
+    grid-area: na;
+    background-color: cornflowerblue;
+}
+
+/*
+.nav ul li {
+    color: azure;
+}*/
+
+.item {
+    color: cornsilk;
+}
