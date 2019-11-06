@@ -1,5 +1,6 @@
 
-.content {
-    grid-area: co;
-    background-color: darkgrey;
+
+
+.content img {
+	width: 500px;
 }

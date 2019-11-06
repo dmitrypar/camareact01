@@ -5,11 +5,11 @@ const Navbar=()=> {
     return (
         <nav className={classes.nav}>
             <ul>
-                <a href="#">
-                    <li className={classes.item}>Messages</li>
+                <a href="/profile">
+                    <li className={classes.item}>Profile</li>
                 </a>
-                <a href="#">
-                    <li className={classes.item}>News</li>
+                <a href="/dialogs">
+                    <li className={classes.item}>Dialogs</li>
                 </a>
                 <a href="#">
                     <li className={classes.item}>Music</li>

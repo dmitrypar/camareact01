@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02401c38-bc5a-4fcb-aa7e-a676b93a8193" name="Default" comment="Вынес Post отдельно и внес пробные изменения в ленту постов">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/Post/Post.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/Post/Post.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
+    <list default="true" id="02401c38-bc5a-4fcb-aa7e-a676b93a8193" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.module.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -236,6 +229,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -279,7 +273,7 @@
       <workItem from="1572808415705" duration="18735000" />
       <workItem from="1572892713664" duration="5368000" />
       <workItem from="1572974040264" duration="3155000" />
-      <workItem from="1572977423199" duration="6411000" />
+      <workItem from="1572977423199" duration="6697000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1572873968425</created>
@@ -337,15 +331,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572977755446</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Вынес Post отдельно и внес пробные изменения в ленту постов">
+      <created>1572984636429</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572984636429</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34659000" />
+    <option name="totallyTimeSpent" value="34945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="321" width="837" height="734" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32903227" />
