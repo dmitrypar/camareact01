@@ -1,0 +1,14 @@
+.myPostBlock {
+	padding: 10px;
+}
+
+
+.content {
+    grid-area: co;
+    background-color: darkgrey;
+}
+
+.posts {
+    color: darkkhaki;
+    padding-top: 10px; 
+}
