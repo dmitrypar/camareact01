@@ -8,12 +8,14 @@ import Music from "./components/Music/Music";
 import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 
-    let postsData = [
-{id: 1, message: 'Hihu drug', likesCount: 35},
-{id: 2, message: 'Hlovoe soobshenie da', likesCount: 71}
-]
+
+
 
 const App = (props) => {
+
+
+
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -21,8 +23,8 @@ const App = (props) => {
                 <Navbar/>
 
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render= {() =><Dialogs />}/>
-                    <Route path='/profile' render={() =><Profile postsData={postsData}/>}/>
+                    <Route path='/dialogs' render= {() =><Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />}/>
+                    <Route path='/profile' render={() =><Profile postsData={props.postsData}/>}/>
                     <Route path='/music' render={Music}/>
                     <Route path='/settings' render={Settings}/>
                     {/*<Dialogs/>*/}
