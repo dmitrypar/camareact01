@@ -35,7 +35,12 @@ let messagesElements = props.messagesData.map (
 );
 
 
+let addmessageElement = React.createRef();
 
+let addMes = () => {
+	let text= addmessageElement.current.value;
+	alert(text);
+};
 
 
 return (
@@ -48,6 +53,10 @@ return (
 	<div className={classes.dialogsItems}>
 
 		{dialogsElements}
+
+		<button onClick={addMes}>Sent</button>
+
+		<textarea ref={addmessageElement}></textarea>
 
 
 		{/* <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
