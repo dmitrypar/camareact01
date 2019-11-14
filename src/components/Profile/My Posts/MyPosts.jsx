@@ -22,9 +22,18 @@ let newPostElement = React.createRef();
 
 
 let addPosts = () => {
-debugger;
+
+    
+    props.addPost();
+
+};
+
+
+let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.addPost(text);
+
+    props.updateNewPostText(text);
+    /*передает данные в state во время печати в поле отправки*/
 };
 
     return (
@@ -33,7 +42,7 @@ debugger;
             <div className={classes.myPostBlock}>
                 <h3>My posts</h3>
                 <div>
-                    <textarea name="" id="" cols="50" rows="3" ref={newPostElement}></textarea>
+                    <textarea  ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
                    <div><button onClick={addPosts}>Add post</button></div> 
                 </div>
                 <div className={classes.posts}>

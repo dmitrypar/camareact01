@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02401c38-bc5a-4fcb-aa7e-a676b93a8193" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/render.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -298,7 +290,7 @@
       <workItem from="1573151958299" duration="1798000" />
       <workItem from="1573491657975" duration="10178000" />
       <workItem from="1573580310195" duration="7600000" />
-      <workItem from="1573666867864" duration="7719000" />
+      <workItem from="1573666867864" duration="8019000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1572873968425</created>
@@ -426,15 +418,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573589005848</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="вынес renderDOM в отдельный файл render. Теперь он отрисовывает UI v index i state (rerender(state))">
+      <created>1573677431687</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1573677431687</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66949000" />
+    <option name="totallyTimeSpent" value="67249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="608" width="892" height="464" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -485,7 +483,8 @@
     <MESSAGE value="вынес входящие данные из My Posts =&gt; Profile =&gt; App" />
     <MESSAGE value="вынес входящие данные из нижних уровней =&gt; App =&gt; Index.js" />
     <MESSAGE value="вынес входящие данные в отдельный файл redux/state.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="вынес входящие данные в отдельный файл redux/state.js" />
+    <MESSAGE value="вынес renderDOM в отдельный файл render. Теперь он отрисовывает UI v index i state (rerender(state))" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынес renderDOM в отдельный файл render. Теперь он отрисовывает UI v index i state (rerender(state))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
