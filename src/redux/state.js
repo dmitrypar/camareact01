@@ -27,9 +27,9 @@ let postsData = [
 
 
 
-import {rerenderEntireTree} from "../render";
+/*import {rerenderEntireTree} from "../index";*/
 
-debugger;
+
 
    
 let state = {
@@ -62,6 +62,11 @@ dialogsPage:
 
 window.state = state;
 
+let rerenderEntireTree = () => {
+
+    console.log("state changed");
+};
+
 export let addPost = () => {
 
     let newPost = {
@@ -89,7 +94,7 @@ export let addNewMessageText = (newMessage) => {
     state.dialogsPage.messagesData.push(newMessageTest);
 /*    state.dialogsPage.messagesData.newMessageText = '';*/
 
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 
 }
 
@@ -103,5 +108,11 @@ export let updateNewPostText = (newMessage) => {
     rerenderEntireTree(state);
 
 }
+
+
+export const subscribe = (observer) => {
+rerenderEntireTree = observer;
+
+};
 
 export default state;
