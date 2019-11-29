@@ -22,7 +22,7 @@ let messagesData = [
 {id: 4, message: 'Oggooy'}
 ]*/
 
-    debugger;
+
 let dialogsElements = props.dialogsData.map (
 (dialog) => 
 <DialogsItem name={dialog.name} id={dialog.id}/>
@@ -30,18 +30,16 @@ let dialogsElements = props.dialogsData.map (
 );
 
 let messagesElements = props.messagesData.map (
-        (message) =>
-            <Message message={message.message} id={message.id} newMessage={message.newMessageText}/>
-    );
-
-
+(message) => 
+<Message message={message.message} id={message.id} />
+);
 
 
 let addmessageElement = React.createRef();
 
 let addMes = () => {
 	let text= addmessageElement.current.value;
-    props.addNewMessageText(text);
+	alert(text);
 };
 
 
@@ -58,7 +56,7 @@ return (
 
 		<button onClick={addMes}>Sent</button>
 
-		<textarea ref={addmessageElement} ></textarea>
+		<textarea ref={addmessageElement}></textarea>
 
 
 		{/* <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>

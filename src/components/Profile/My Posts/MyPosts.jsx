@@ -11,7 +11,7 @@ const MyPosts = (props) => {
 {id: 2, message: 'Clovoe soobshenie da', likesCount: 71}
 ]*/
 
-let postsElements = props.postsData.map (
+let postsElements = props.posts.map (
 (posts) => 
 <Post message={posts.message} likeCount={posts.likesCount}/>
 
@@ -24,7 +24,7 @@ let newPostElement = React.createRef();
 let addPosts = () => {
 
     
-    props.addPost();
+    props.dispatch({type:'ADD-POST'});
 
 };
 
@@ -32,7 +32,7 @@ let addPosts = () => {
 let onPostChange = () => {
     let text = newPostElement.current.value;
 
-    props.updateNewPostText(text);
+    props.dispatch({type:'UPDATE-NEW-POST-TEXT', newMessage: text});
     /*передает данные в state во время печати в поле отправки*/
 };
 
