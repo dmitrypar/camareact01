@@ -1,40 +1,38 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-
+import {adPostActionCreator, onPostChangeActionCreator} from "../../../redux/state";
 
 
 const MyPosts = (props) => {
 
-/*let postsData = [
-{id: 1, message: 'Hihu drug', likesCount: 35},
-{id: 2, message: 'Clovoe soobshenie da', likesCount: 71}
-]*/
-
-let postsElements = props.posts.map (
-(posts) => 
-<Post message={posts.message} likeCount={posts.likesCount}/>
-
-);
-
-let newPostElement = React.createRef();
+    /*let postsData = [
+    {id: 1, message: 'Hihu drug', likesCount: 35},
+    {id: 2, message: 'Clovoe soobshenie da', likesCount: 71}
+    ]*/
 
 
 
-let addPosts = () => {
-
-    
-    props.dispatch({type:'ADD-POST'});
-
-};
 
 
-let onPostChange = () => {
-    let text = newPostElement.current.value;
+    let postsElements = props.posts.map(
+        (posts) =>
+            <Post message={posts.message} likeCount={posts.likesCount}/>
+    );
 
-    props.dispatch({type:'UPDATE-NEW-POST-TEXT', newMessage: text});
-    /*передает данные в state во время печати в поле отправки*/
-};
+    let newPostElement = React.createRef();
+
+
+    let addPosts = () => {
+        props.dispatch(adPostActionCreator());
+    };
+
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.dispatch(onPostChangeActionCreator(text));
+        /*передает данные в state во время печати в поле отправки*/
+    };
 
     return (
 
@@ -42,14 +40,16 @@ let onPostChange = () => {
             <div className={classes.myPostBlock}>
                 <h3>My posts</h3>
                 <div>
-                    <textarea  ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
-                   <div><button onClick={addPosts}>Add post</button></div> 
+                    <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+                    <div>
+                        <button onClick={addPosts}>Add post</button>
+                    </div>
                 </div>
                 <div className={classes.posts}>
-                   {/* <Post 
+                    {/* <Post
                    message={postsData[0].message} likeCount={postsData[0].likesCount}/>
                      <Post message={postsData[1].message} likeCount={postsData[1].likesCount}/> */}
-                     {postsElements}
+                    {postsElements}
                     <Post/>
                 </div>
             </div>

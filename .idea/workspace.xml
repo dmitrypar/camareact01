@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,19 +21,15 @@
       <file leaf-file-name="state.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/state.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
+            <state relative-caret-position="204">
+              <caret line="107" column="28" lean-forward="true" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
               <folding>
-                <element signature="e#26#592#0" />
-                <element signature="e#678#715#0" />
-                <element signature="e#729#755#0" />
-                <element signature="e#779#816#0" />
-                <element signature="e#839#1586#0" />
-                <element signature="e#876#1139#0" />
-                <element signature="e#1189#1423#0" />
-                <element signature="e#1472#1583#0" />
-                <element signature="e#1996#2072#0" />
-                <element signature="e#1639#2052#0" />
+                <element signature="e#12#2090#0" />
+                <element signature="e#28#819#0" />
+                <element signature="e#844#889#0" />
+                <element signature="e#907#941#0" />
+                <element signature="e#968#1017#0" />
+                <element signature="e#1042#2005#0" />
               </folding>
             </state>
           </provider>
@@ -43,8 +38,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            <state relative-caret-position="204">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -55,8 +50,32 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+            <state relative-caret-position="339">
+              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dialogs.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="42" column="65" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Message.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -67,8 +86,8 @@
       <file leaf-file-name="Profile.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Profile/Profile.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="68">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -79,8 +98,8 @@
       <file leaf-file-name="MyPosts.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="34" column="65" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="65" />
+            <state relative-caret-position="85">
+              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -132,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" />
         <option value="$PROJECT_DIR$/src/components/Dialogs/DialogsItem/DialogsItem.jsx" />
         <option value="$PROJECT_DIR$/src/components/Profile/Profile.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" />
         <option value="$PROJECT_DIR$/src/render.js" />
-        <option value="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" />
         <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" />
         <option value="$PROJECT_DIR$/src/redux/state.js" />
@@ -170,6 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,28 +206,12 @@
               <item name="react01" type="b2602c69:ProjectViewProjectNode" />
               <item name="react01" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Profile" type="462c0819:PsiDirectoryNode" />
-              <item name="My Posts" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,7 +279,8 @@
       <workItem from="1573754295912" duration="9125000" />
       <workItem from="1573836650389" duration="8092000" />
       <workItem from="1573893048156" duration="4298000" />
-      <workItem from="1575046116862" duration="4668000" />
+      <workItem from="1575046116862" duration="11414000" />
+      <workItem from="1575119044668" duration="3562000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1572873968425</created>
@@ -438,11 +443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573897349883</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="упаковали  функции  в объект dispatch, рефакторинг путей">
+      <created>1575051698298</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1575051698298</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93432000" />
+    <option name="totallyTimeSpent" value="103740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="550" width="892" height="519" extended-state="0" />
@@ -451,9 +463,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.1308642" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.28225806" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28310502" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -473,6 +485,42 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -502,11 +550,12 @@
     <MESSAGE value="связал данные из текст формы с state и отрисовка обратно в Dialogs" />
     <MESSAGE value="рефакторинг логики перерисовки - удалил render и применил патерн observer" />
     <MESSAGE value="упаковали данные и функции из state в объект store, рефакторинг путей" />
-    <option name="LAST_COMMIT_MESSAGE" value="упаковали данные и функции из state в объект store, рефакторинг путей" />
+    <MESSAGE value="упаковали  функции  в объект dispatch, рефакторинг путей" />
+    <option name="LAST_COMMIT_MESSAGE" value="упаковали  функции  в объект dispatch, рефакторинг путей" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -770,20 +819,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/render.js" />
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="279">
+          <caret line="2240" column="2" selection-start-line="2240" selection-start-column="2" selection-end-line="2240" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state relative-caret-position="663">
+          <caret line="42" column="65" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="65" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -792,18 +838,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="136">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        <state relative-caret-position="204">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -812,25 +858,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Profile/Profile.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="2240" column="2" selection-start-line="2240" selection-start-column="2" selection-end-line="2240" selection-end-column="2" />
+        <state relative-caret-position="85">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="65" />
+        <state relative-caret-position="339">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -839,19 +888,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/state.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
+        <state relative-caret-position="204">
+          <caret line="107" column="28" lean-forward="true" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
           <folding>
-            <element signature="e#26#592#0" />
-            <element signature="e#678#715#0" />
-            <element signature="e#729#755#0" />
-            <element signature="e#779#816#0" />
-            <element signature="e#839#1586#0" />
-            <element signature="e#876#1139#0" />
-            <element signature="e#1189#1423#0" />
-            <element signature="e#1472#1583#0" />
-            <element signature="e#1996#2072#0" />
-            <element signature="e#1639#2052#0" />
+            <element signature="e#12#2090#0" />
+            <element signature="e#28#819#0" />
+            <element signature="e#844#889#0" />
+            <element signature="e#907#941#0" />
+            <element signature="e#968#1017#0" />
+            <element signature="e#1042#2005#0" />
           </folding>
         </state>
       </provider>

@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+
 let store = {
 
 
@@ -15,8 +19,9 @@ let store = {
                     {id: 2, message: 'Slala'},
                     {id: 3, message: 'Eeee'},
                     {id: 4, message: 'Oggooy'},
-                    {newMessageText: 'gol ne zashol'}
                 ],
+
+                newMessageText: ''
             },
         profilePage: {
             postsData: [
@@ -60,14 +65,17 @@ let store = {
         }
         else if (action.type === 'ADD-NEW-MESSAGE-TEXT') {
 
-            let newMessageTest = {
 
-                newMessageText: action.newMessage,
+
+            let newMessageText = {
+                id: 5,
+                message: this._state.dialogsPage.newMessageText,
 
             }
 
-            this._state.dialogsPage.messagesData.push(newMessageTest);
-            /*    state.dialogsPage.messagesData.newMessageText = '';*/
+
+            this._state.dialogsPage.messagesData.push(newMessageText);
+            this._state.dialogsPage.messagesData.newMessageText = '';
             this._callSubscriber();
         }
 
@@ -79,7 +87,10 @@ let store = {
 
         }
 
-    }
+    },
+
+
+
 
     /*    rerenderEntireTree() {
 
@@ -87,6 +98,18 @@ let store = {
     },*/
 
 };
+
+export const adPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const onPostChangeActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT, newMessage: text
+    }
+}
 
 window.store = store;
 
