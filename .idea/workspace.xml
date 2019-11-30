@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="02401c38-bc5a-4fcb-aa7e-a676b93a8193" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My Posts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/state.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -123,7 +118,13 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="DM" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -280,7 +281,7 @@
       <workItem from="1573836650389" duration="8092000" />
       <workItem from="1573893048156" duration="4298000" />
       <workItem from="1575046116862" duration="11414000" />
-      <workItem from="1575119044668" duration="3562000" />
+      <workItem from="1575119044668" duration="4354000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1572873968425</created>
@@ -450,11 +451,18 @@
       <option name="project" value="LOCAL" />
       <updated>1575051698298</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="вынес функции создания action (dispatch) in state а названия типов action  записал в константы">
+      <created>1575137578991</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1575137578991</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103740000" />
+    <option name="totallyTimeSpent" value="104532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="550" width="892" height="519" extended-state="0" />
@@ -526,7 +534,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test1" />
     <MESSAGE value="test2" />
     <MESSAGE value="test21" />
     <MESSAGE value="test3" />
@@ -551,7 +558,8 @@
     <MESSAGE value="рефакторинг логики перерисовки - удалил render и применил патерн observer" />
     <MESSAGE value="упаковали данные и функции из state в объект store, рефакторинг путей" />
     <MESSAGE value="упаковали  функции  в объект dispatch, рефакторинг путей" />
-    <option name="LAST_COMMIT_MESSAGE" value="упаковали  функции  в объект dispatch, рефакторинг путей" />
+    <MESSAGE value="вынес функции создания action (dispatch) in state а названия типов action  записал в константы" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынес функции создания action (dispatch) in state а названия типов action  записал в константы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
