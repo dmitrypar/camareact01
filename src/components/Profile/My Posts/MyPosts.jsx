@@ -12,10 +12,10 @@ const MyPosts = (props) => {
     ]*/
 
 
+let posts = props.profilePage.postsData
 
 
-
-    let postsElements = props.posts.map(
+    let postsElements = posts.map(
         (posts) =>
             <Post message={posts.message} likeCount={posts.likesCount}/>
     );
@@ -33,14 +33,15 @@ const MyPosts = (props) => {
         props.dispatch(onPostChangeActionCreator(text));
         /*передает данные в state во время печати в поле отправки*/
     };
-
+    debugger;
     return (
 
         <div className={classes.content}>
             <div className={classes.myPostBlock}>
                 <h3>My posts</h3>
                 <div>
-                    <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+
+                    <textarea ref={newPostElement} value={props.profilePage.newPostText} onChange={onPostChange}/>
                     <div>
                         <button onClick={addPosts}>Add post</button>
                     </div>

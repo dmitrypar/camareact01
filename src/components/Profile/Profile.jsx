@@ -17,9 +17,9 @@ const Profile=(props)=> {
     return (
     	<div>
 				<Profileinfo/>
-                <MyPosts  
-                posts={props.profilePage.postsData}
-                newPostText={props.profilePage.newPostText}
+                <MyPosts
+                    profilePage={props.profilePage}
+               /* newPostText={props.profilePage.newPostText}*/
                 dispatch = {props.dispatch} />
           
         </div>
