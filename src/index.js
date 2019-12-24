@@ -69,7 +69,7 @@ console.log(state);*/
 
 /*store.subscribe(()=>{
 	console.log(store.getState());
-});
+})
 
 console.log(store.getState());
 
