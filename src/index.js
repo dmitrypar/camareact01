@@ -72,7 +72,7 @@ console.log(state);*/
 	console.log(store.getState());
 })
 
-console.log(store.getState());
+console.log(store.getState())
 
 store.dispatch({type: 'INC'});
 store.dispatch({type: 'INC'});*/
