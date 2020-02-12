@@ -1,46 +1,34 @@
 import React from 'react';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+import store  from './redux/redux-store';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-
-import reducer from './reducer'
-
-import {Provider} from 'react-redux';
-import App from './components/app'
-
-const store = createStore(reducer);
+import './index.css';
+import App from './App';
+/*import {addNewMessageText, addPost} from './redux/state';
+import {updateNewPostText} from './redux/state';*/
+import {BrowserRouter} from 'react-router-dom';
 
 
 
+
+let rerenderEntireTree = (state) => {
+debugger;
     ReactDOM.render(
-        <Provider store={store}>
-            <App/>
-        </Provider>
-        , document.getElementById('root'));
+        <BrowserRouter>
+        <App state={state} 
+        dispatch={store.dispatch.bind(store)} />
+        </BrowserRouter>, document.getElementById('root'));
 
-// Provider сам следит за обновлениями как состояния так и state
-
-
-/*const inc = () => {
-	return {type: 'INC'}
-};*/
-
-/*const incDispatch = () => dispatch(inc());
-const decDispatch = () => dispatch(dec());
-const rndDispatch = (payload) => dispatch(rnd(payload));*/
-
-/*const bindActionCreator = (creator, dispatch) => (...args) => {
-    dispatch(creator(...args))
-};
-// так работает функция bindActionCreators from redux
+}
 
 
-const incDispatch = bindActionCreator(inc, dispatch);
-const decDispatch = bindActionCreator(dec, dispatch);
-const rndDispatch =  bindActionCreator(rnd, dispatch);*/
+rerenderEntireTree(store.getState());
 
-/*const incDispatch = bindActionCreators(inc, dispatch);
-const decDispatch = bindActionCreators(dec, dispatch);
-const rndDispatch =  bindActionCreators(rnd, dispatch);*/
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+});
 
 
 
@@ -48,23 +36,7 @@ const rndDispatch =  bindActionCreators(rnd, dispatch);*/
 
 
 
-
-/*let state = reducer(undefined, {})
-
-state = reducer(state, {type:'INC'});
-console.log(state);
-
-state = reducer(state, {type:'INC'});
-
-console.log(state);*/
-
-
-
-/*store.subscribe(()=>{
-	console.log(store.getState());
-})
-
-console.log(store.getState())
-
-store.dispatch({type: 'INC'});
-store.dispatch({type: 'INC'});*/
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
