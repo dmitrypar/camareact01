@@ -1,17 +1,13 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profilePageReducer";
+
 
 
 
 const MyPosts = (props) => {
 
-/*let postsData = [
-{id: 1, message: 'Hihu drug', likesCount: 35},
-{id: 2, message: 'Clovoe soobshenie da', likesCount: 71}
-]*/
-debugger;
+
 let postsElements = props.posts.map (
 (posts) => 
 <Post message={posts.message} likeCount={posts.likesCount}/>
@@ -23,17 +19,14 @@ let newPostElement = React.createRef();
 
 
 let addPosts = () => {
-
-    
-    props.dispatch(addPostActionCreator());
-
+    props.addPosts();
 };
 
 
 let onPostChange = () => {
     let text = newPostElement.current.value;
 
-    props.dispatch(updateNewPostTextActionCreator(text));
+    props.updateNewPostText(text);
     /*передает данные в state во время печати в поле отправки*/
 };
 
