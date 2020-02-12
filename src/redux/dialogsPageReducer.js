@@ -31,7 +31,7 @@ const dialogsReducer = (state = InitialState, action) => {
             let body = state.newMessageBody;
             // вытирание ячейки после нажатия отправить
             state.newMessageBody = "";
-            state.messagesData.push({id: 5, message: body});
+            state.messagesData.push({id: 5, message: body})
             return state;
 
         default: return state;
