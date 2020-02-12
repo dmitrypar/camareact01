@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profilePageReducer";
 
 
 
@@ -24,7 +25,7 @@ let newPostElement = React.createRef();
 let addPosts = () => {
 
     
-    props.dispatch({type:'ADD_POST'});
+    props.dispatch(addPostActionCreator());
 
 };
 
@@ -32,7 +33,7 @@ let addPosts = () => {
 let onPostChange = () => {
     let text = newPostElement.current.value;
 
-    props.dispatch({type:'UPDATE_NEW_POST_TEXT',  newText: text});
+    props.dispatch(updateNewPostTextActionCreator(text));
     /*передает данные в state во время печати в поле отправки*/
 };
 
