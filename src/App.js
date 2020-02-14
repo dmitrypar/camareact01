@@ -26,8 +26,8 @@ const App = (props) => {
                     <Route path='/dialogs' render= {() =>
                         <DialogsContainer /*dialogsData={props.state.dialogsPage.dialogsData}
                                  messagesData={props.state.dialogsPage.messagesData}*/
-                                 newMessageBody = {props.state.dialogsPage.newMessageBody}
-                                 dispatch={props.dispatch}/>}/>
+                                 /*newMessageBody = {props.state.dialogsPage.newMessageBody}
+                                 dispatch={props.dispatch}*//>}/>
                     <Route path='/profile' render={() =>
                         <Profile 
                        /* profilePage={props.state.profilePage}*/
