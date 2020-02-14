@@ -14,20 +14,21 @@ const MyPostsContainer = (props) => {
 
 
 
-let addPosts = () => {
-    props.dispatch(addPostActionCreator());
-};
 
-
-let onPostChange = (text) => {
-    props.dispatch(updateNewPostTextActionCreator(text));
-
-};
 
     return (
         <StoreContext.Consumer>
             {
                 (store) => {
+
+                    let addPosts = () => {
+                        store.dispatch(addPostActionCreator());
+                    };
+
+
+                    let onPostChange = (text) => {
+                       store.dispatch(updateNewPostTextActionCreator(text));
+                    };
                     const state =  store.getState();
                     return (
                         <MyPosts addPosts={addPosts}

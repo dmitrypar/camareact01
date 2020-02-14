@@ -21,29 +21,30 @@ const DialogsContainer = (props) => {
     ]*/
 
 
-    let onSendMessageClick = () => {
-        props.dispatch(sendMessageActionCreator())
-    };
-
-    let newMessageBody = props.newMessageBody;
-    // (очищает вводимый текст)
-
-    let onNewMessageChange = (value) => {
-        // передаем значение из тексареа в импортированный акшн креатор (сортировочный пункт)
-        // - бросаем вниз корзину c с открытой крышкой (скобки -реализация). импорт брок вниз -
-        //пропс диспатч - веревка корзины -поднять наверх в стор
-        // c балкона сторе с веревкой-пропс-диспатч сбросили корзину-с адресом апдейкреатор ,
-        // в корзину кладем эвент-текущее значение текс-эреа чтобы отправить в стор
-        props.dispatch(updateNewMessageBodyActionCreator(value))
-    };
-
-
     return (
 <StoreContext.Consumer>
 
 {
     (store) =>{
         const state = store.getState();
+
+        let onSendMessageClick = () => {
+           store.dispatch(sendMessageActionCreator())
+        };
+
+        let newMessageBody = state.dialogsPage.newMessageBody;
+        // (очищает вводимый текст)
+
+        let onNewMessageChange = (value) => {
+            // передаем значение из тексареа в импортированный акшн креатор (сортировочный пункт)
+            // - бросаем вниз корзину c с открытой крышкой (скобки -реализация). импорт брок вниз -
+            //пропс диспатч - веревка корзины -поднять наверх в стор
+            // c балкона сторе с веревкой-пропс-диспатч сбросили корзину-с адресом апдейкреатор ,
+            // в корзину кладем эвент-текущее значение текс-эреа чтобы отправить в стор
+            store.dispatch(updateNewMessageBodyActionCreator(value))
+        };
+
+
         return (
             <Dialogs dialogsData={state.dialogsPage.dialogsData}
                      messagesData={state.dialogsPage.messagesData}
