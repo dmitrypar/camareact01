@@ -5,9 +5,8 @@ import store  from './redux/redux-store';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-/*import {addNewMessageText, addPost} from './redux/state';
-import {updateNewPostText} from './redux/state';*/
 import {BrowserRouter} from 'react-router-dom';
+import StoreContext from "./StoreContext";
 
 
 
@@ -16,8 +15,10 @@ let rerenderEntireTree = (state) => {
 debugger;
     ReactDOM.render(
         <BrowserRouter>
-        <App state={state} 
-        dispatch={store.dispatch.bind(store)} />
+            <StoreContext.Provider value={store}>
+                <App state={state}  dispatch={store.dispatch.bind(store)} />
+            </StoreContext.Provider>
+
         </BrowserRouter>, document.getElementById('root'));
 
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profilePageReducer";
 import MyPosts from "./MyPosts";
+import StoreContext from "../../../StoreContext";
 
 
 
@@ -24,11 +25,19 @@ let onPostChange = (text) => {
 };
 
     return (
-
-        <MyPosts addPosts={addPosts}
-                 updateNewPostText={onPostChange}
-                 posts={props.posts}
-                 newPostText={props.newPostText}/>
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    const state =  store.getState();
+                    return (
+                        <MyPosts addPosts={addPosts}
+                                 updateNewPostText={onPostChange}
+                                 posts={state.profilePage.postsData}
+                                 newPostText={state.profilePage.newPostText}/>
+                    )
+                }
+            }
+            </StoreContext.Consumer>
     )
 };
 
