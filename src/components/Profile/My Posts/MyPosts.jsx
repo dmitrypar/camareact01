@@ -3,33 +3,22 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
 
-
-
 const MyPosts = (props) => {
-
 
 let postsElements = props.posts.map (
 (posts) => 
 <Post message={posts.message} likeCount={posts.likesCount}/>
-
 );
 
 let newPostElement = React.createRef();
-
-
-
 let addPosts = () => {
     props.addPosts();
 };
-
-
 let onPostChange = () => {
     let text = newPostElement.current.value;
-
     props.updateNewPostText(text);
     /*передает данные в state во время печати в поле отправки*/
 };
-
     return (
 
         <div className={classes.content}>
