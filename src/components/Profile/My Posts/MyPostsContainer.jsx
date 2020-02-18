@@ -2,7 +2,7 @@ import React from 'react';
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profilePageReducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
-import Dialogs from "../../Dialogs/Dialogs";
+
 
 
 

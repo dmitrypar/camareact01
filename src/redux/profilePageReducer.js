@@ -8,32 +8,39 @@ let initialState = {
         {id: 1, message: 'Hihu drug', likesCount: 35},
         {id: 2, message: 'Hlovoe soobshenie da', likesCount: 71}
     ],
-
     newPostText: ''
 }
 
 
-
 const profileReducer = (state = initialState, action) => {
 
-
-
     switch (action.type) {
-        case 'UPDATE_NEW_POST_TEXT':
-            debugger;
-            state.newPostText = action.newText;
-            return state;
+
         case 'ADD_POST':
+        {
             let newPost = {
                 id: 3,
                 message: state.newPostText,
                 likesCount: 40
-
             };
+            //создаем поверхностную копию
+            let stateCopy = {...state};
+            /* state.postsData.push(newPost);*/
+            //!!![...state.postsData]!!! {...state.postsData} - иначе ошибка push not function
+            //создаем глубокую копию
+            stateCopy.postsData = [...state.postsData];
+            stateCopy.postsData.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        }
 
-            state.postsData.push(newPost);
-            state.newPostText = '';
-            return state;
+        case 'UPDATE_NEW_POST_TEXT':
+            {
+                let stateCopy = {...state};
+                stateCopy.newPostText = action.newText;
+                return stateCopy;
+                /*this._callSubscriber(this._state)*/
+            }
 
         default:
             return state;

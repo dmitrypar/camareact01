@@ -3,7 +3,7 @@ import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../..
 import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profilePageReducer";
+
 
 
 /*const DialogsContainerr = (props) => {
