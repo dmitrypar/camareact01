@@ -7,6 +7,7 @@ import Music from "./components/Music/Music";
 import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Users from "./components/Users/Users";
 
 
 
@@ -24,15 +25,18 @@ const App = (props) => {
 
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render= {() =>
-                        <DialogsContainer /*dialogsData={props.state.dialogsPage.dialogsData}
-                                 messagesData={props.state.dialogsPage.messagesData}*/
-                                 /*newMessageBody = {props.state.dialogsPage.newMessageBody}
-                                 dispatch={props.dispatch}*//>}/>
+                        <DialogsContainer
+                            /*dialogsData={props.state.dialogsPage.dialogsData}
+                                 messagesData={props.state.dialogsPage.messagesData}
+                                 newMessageBody = {props.state.dialogsPage.newMessageBody}
+                                 dispatch={props.dispatch}*/
+                        />}/>
                     <Route path='/profile' render={() =>
                         <Profile 
-                       /* profilePage={props.state.profilePage}*/
-                       /* dispatch={props.dispatch}*/ />}/>
+                       /* profilePage={props.state.profilePage}
+                        dispatch={props.dispatch}*/ />}/>
                     <Route path='/music' render={Music}/>
+                    <Route path='/users' render={()=> <Users/>}/>
                     <Route path='/settings' render={Settings}/>
                     {/*<Dialogs/>*/}
                     {/*<Profile/>*/}
