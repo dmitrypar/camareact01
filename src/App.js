@@ -7,7 +7,9 @@ import Music from "./components/Music/Music";
 import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/usersContainers";
+
+
 
 
 
@@ -36,7 +38,7 @@ const App = (props) => {
                        /* profilePage={props.state.profilePage}
                         dispatch={props.dispatch}*/ />}/>
                     <Route path='/music' render={Music}/>
-                    <Route path='/users' render={()=> <Users/>}/>
+                    <Route path='/users' render={()=> <UsersContainer/>}/>
                     <Route path='/settings' render={Settings}/>
                     {/*<Dialogs/>*/}
                     {/*<Profile/>*/}

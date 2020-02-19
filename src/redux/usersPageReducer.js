@@ -1,14 +1,27 @@
+
+
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
-export const followActionCreator = (userId) => ({type: FOLLOW, userId});
-export const unfollowActionCreator = (userId) => ({type: UNFOLLOW, userId});
+const SET_USERS = 'SET_USERS';
+export const followAC = (userId) => ({type: FOLLOW, userId});
+export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
+export const setUsersAC = (users) => ({type: SET_USERS, users});
 
 let initialState = {
     users: [
-        {id: 1, followed: true, firstName: 'Dmitry', status: 'im fine', location: {city: 'Moscow', country: 'Russia'}},
-        {id: 2, followed: false, firstName: 'Karen', status: 'in think', location: {city: 'Smolensk', country: 'Russia'}},
-        {id: 3, followed: true, firstName: 'Vadim', status: 'out', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 4, followed: false, firstName: 'Stas', status: 'return', location: {city: 'Kiev', country: 'Ukraine'}}
+        {id: 1, userAvaUrl:'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+            followed: true, firstName: 'Dmitry', status: 'im fine',
+            location: {city: 'Moscow', country: 'Russia'}},
+        {id: 2, userAvaUrl:'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+            followed: false, firstName: 'Karen', status: 'in think',
+            location: {city: 'Smolensk', country: 'Russia'}},
+        {id: 3, userAvaUrl:'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+            followed: true, firstName: 'Vadim', status: 'out',
+            location: {city: 'Minsk', country: 'Belarus'}},
+        {id: 4, userAvaUrl:'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+            followed: false, firstName: 'Stas', status: 'return',
+            location: {city: 'Kiev', country: 'Ukraine'}}
 
     ],
     newPostText: ''
@@ -40,6 +53,12 @@ const usersReducer = (state = initialState, action) => {
                     return user;
                 })
             };
+
+        case 'SET_USERS': {
+            return {
+                ...state, users: [...state.users, ...action.users]
+            }
+        }
 
         default:
             return state;
