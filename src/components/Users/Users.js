@@ -1,27 +1,29 @@
 import React from 'react';
 import styles from './users.module.css';
+/*import {followAC, unfollowAC} from "../../redux/usersPageReducer";*/
 
 const Users = (props) => {
     /*{userImageUrl, firstName, status, {city, country}} = props.users*/
     return (
         <div>
-            {props.users.map(u=> <div key={u.id}>
+            {props.users.map(user=> <div key={user.id}>
                 <span>
                     <div>
-                        <img src={u.userAvaUrl}   className={styles.photo}/>
+                        <img src={user.userAvaUrl}   className={styles.photo}/>
                     </div>
                     <div>
-                        {u.followed ? <button>Follow</button> : <button>Unfollow</button>}
+                        {user.followed ? <button onClick={()=>{props.unfollow(user.id)}}>Unfollow</button>
+                            : <button onClick={()=>{props.follow(user.id)}}>Follow</button>}
                     </div>
                 </span>
                 <span>
                     <span>
-                        <div>{u.firstName}</div>
-                        <div>{u.status}</div>
+                        <div>{user.firstName}</div>
+                        <div>{user.status}</div>
                     </span>
                     <span>
-                        <div>{u.location.city}</div>
-                        <div>{u.location.country}</div>
+                        <div>{user.location.city}</div>
+                        <div>{user.location.country}</div>
                     </span>
                 </span>
             </div>)}
