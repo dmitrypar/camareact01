@@ -4,30 +4,34 @@ import styles from './users.module.css';
 
 const Users = (props) => {
 
-    props.setUsers(
-        [
-            {
-                id: 1, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                followed: true, firstName: 'Dmitry', status: 'im fine',
-                location: {city: 'Moscow', country: 'Russia'}
-            },
-            {
-                id: 2, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                followed: false, firstName: 'Karen', status: 'in think',
-                location: {city: 'Smolensk', country: 'Russia'}
-            },
-            {
-                id: 3, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                followed: true, firstName: 'Vadim', status: 'out',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: 4, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                followed: false, firstName: 'Stas', status: 'return',
-                location: {city: 'Kiev', country: 'Ukraine'}
-            }
-        ]
-    )
+
+    if (props.users.length===0) {
+        //Error: Maximum update depth exceeded
+        props.setUsers(
+            [
+                {
+                    id: 1, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+                    followed: true, firstName: 'Dmitry', status: 'im fine',
+                    location: {city: 'Moscow', country: 'Russia'}
+                },
+                {
+                    id: 2, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+                    followed: false, firstName: 'Karen', status: 'in think',
+                    location: {city: 'Smolensk', country: 'Russia'}
+                },
+                {
+                    id: 3, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+                    followed: true, firstName: 'Vadim', status: 'out',
+                    location: {city: 'Minsk', country: 'Belarus'}
+                },
+                {
+                    id: 4, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
+                    followed: false, firstName: 'Stas', status: 'return',
+                    location: {city: 'Kiev', country: 'Ukraine'}
+                }
+            ]
+        )
+    }
 
     return (
         <div>
