@@ -1,44 +1,77 @@
 import React from 'react';
 import styles from './users.module.css';
-/*import {followAC, unfollowAC} from "../../redux/usersPageReducer";*/
+import * as axios from 'axios'
 
-const Users = (props) => {
+let Users = (props) => {
 
 
-    if (props.users.length===0) {
+debugger;
+    if (props.users.length === 0) {
         //Error: Maximum update depth exceeded
-        props.setUsers(
-            [
-                {
-                    id: 1, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                    followed: true, firstName: 'Dmitry', status: 'im fine',
-                    location: {city: 'Moscow', country: 'Russia'}
-                },
-                {
-                    id: 2, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                    followed: false, firstName: 'Karen', status: 'in think',
-                    location: {city: 'Smolensk', country: 'Russia'}
-                },
-                {
-                    id: 3, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                    followed: true, firstName: 'Vadim', status: 'out',
-                    location: {city: 'Minsk', country: 'Belarus'}
-                },
-                {
-                    id: 4, userAvaUrl: 'https://fanfics.me/images/fandoms_heroes/1151-1535527317.jpg',
-                    followed: false, firstName: 'Stas', status: 'return',
-                    location: {city: 'Kiev', country: 'Ukraine'}
-                }
-            ]
-        )
-    }
 
+       axios.get("https://randomuser.me/api/?results=4").then(response => {
+            /*props.setUsers();*/
+           console.log(response.data.results);
+           props.setUsers(response.data.results)
+        })
+ /*       props.setUsers(
+            [
+                // https://randomuser.me/api/?results=4
+                {
+                    id: 1,
+                    picture: {
+                        medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
+                        thumbnail: "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+                    },
+                    followed: true,
+                    name: {first: 'Dmitry', last: 'Firl'},
+                    status: 'im fine',
+                    location: {city: 'Moscow', state: 'Russia'}
+                },
+                    {
+                        id: 2,
+                        picture: {
+                            medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
+                            thumbnail: "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+                        },
+                        followed: false,
+                        name: {first: 'Ivan', last: 'Dulin'},
+                        status: 'in think',
+                        location: {city: 'Smolensk', state: 'Russia'}
+                    },
+                    {
+                        id: 3,
+                        picture: {
+                            medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
+                            thumbnail: "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+                        },
+                        followed: true,
+                        name: {first: 'Tobok', last: 'Lor'},
+                        status: 'out',
+                        location: {city: 'Minsk', state: 'Belarus'}
+                    },
+                    {
+                        id: 4,
+                        picture: {
+                            medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
+                            thumbnail: "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+                        },
+                        followed: false,
+                        name: {first: 'Tapak', last: 'Lorak'},
+                        status: 'return',
+                        location: {city: 'Kiev', state: 'Ukraine'}
+                    }
+                ]
+        )*/
+
+    }
+    debugger;
     return (
         <div>
             {props.users.map(user => <div key={user.id}>
                 <span>
                     <div>
-                        <img src={user.userAvaUrl} className={styles.photo}/>
+                        <img src={user.picture.medium} className={styles.photo}/>
                     </div>
                     <div>
                         {user.followed ? <button onClick={() => {
@@ -51,12 +84,12 @@ const Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{user.firstName}</div>
+                        <div>{user.name.first}</div>
                         <div>{user.status}</div>
                     </span>
                     <span>
                         <div>{user.location.city}</div>
-                        <div>{user.location.country}</div>
+                        <div>{user.location.state}</div>
                     </span>
                 </span>
             </div>)}
