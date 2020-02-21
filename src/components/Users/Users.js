@@ -4,9 +4,13 @@ import * as axios from 'axios'
 
 class Users  extends React.Component  {
 
-    constructor(props) {
+/*    constructor(props) {
         super(props);
+    }*/
 
+    componentDidMount() {
+        // после создания в конструкторе объекта он получает JSX разметку в рендере
+        // и только в componentDidMount он монтируется и становится видимым
         axios.get("https://randomuser.me/api/?results=4").then(response => {
             console.log(response.data.results);
             /*props.setUsers();*/
@@ -14,11 +18,11 @@ class Users  extends React.Component  {
         })
     }
 
-/*getUsers = () => {
-    if (this.props.users.length === 0) {
-        //Error: Maximum update depth exceeded
-    }
-};*/
+    /*getUsers = () => {
+        if (this.props.users.length === 0) {
+            //Error: Maximum update depth exceeded
+        }
+    };*/
 
 render () {
     return (
