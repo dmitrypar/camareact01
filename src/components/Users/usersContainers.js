@@ -25,7 +25,7 @@ class UsersApiContainer extends React.Component {
         axios.get(`https://randomuser.me/api/?page=${this.props.currentPage}&results=${this.props.pageSize}`).then(response => {
             this.props.toogleIsFetching(true);
             // для отображения статуса прелодера перед загрузкой данных
-            console.log(response.data);
+            console.log(response.data.results.map((i)=>{return (i.login.username)}));
             this.props.setUsers(response.data.results);
             this.props.toogleIsFetching(false);
             /*          console.log(response.data.results);

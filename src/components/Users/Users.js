@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './users.module.css';
 import preloader from "../../assets/images/lod.gif";
+import {NavLink} from "react-router-dom";
 
 const  Users  = (props) => {
 
@@ -16,17 +17,21 @@ const  Users  = (props) => {
           {props.isFetching ?  <img className={styles.preload} src={preloader} alt="kkk"/>  : null}
 
       <div>
-          <div>
+          <div >
               {pages.map(p=>{
                   return <span onClick={(e)=>{props.onPageChanged(p)}} key={p.id} className={props.currentPage ===p && styles.selectedpages}>{p}</span>
               })}
 
           </div>
           <div>
-              {props.users.map(user => <div key={user.id}>
+              {props.users.map(user =>
+
+                  <div >
                 <span>
                     <div>
-                        <img src={user.picture.medium} className={styles.photo}/>
+                        <NavLink to={'/profile/' + user.login.username}>
+                            <img src={user.picture.medium} className={styles.photo} key={user.id}/>
+                        </NavLink>
                     </div>
                     <div>
                         {user.followed ? <button onClick={() => {
@@ -36,6 +41,7 @@ const  Users  = (props) => {
                                 props.follow(user.id)
                             }}>Follow</button>}
                     </div>
+
                 </span>
                   <span>
                     <span>
