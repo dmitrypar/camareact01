@@ -1,10 +1,18 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {followAC, setCurrentPageAC, setUsersAC, unfollowAC} from "../../redux/usersPageReducer";
 import Users from "./Users";
 import * as axios from 'axios'
+import {
+    //  actioncreators
+    follow,
+    setCurrentPage,
+    setUsers,
+    toogleIsFetching,
+    unfollow
+} from "../../redux/usersPageReducer";
 
-class UsersApiContainer  extends React.Component  {
+
+class UsersApiContainer extends React.Component {
 
     /*    constructor(props) {
             super(props);
@@ -13,9 +21,13 @@ class UsersApiContainer  extends React.Component  {
     componentDidMount() {
         // после создания в конструкторе объекта он получает JSX разметку в рендере
         // и только в componentDidMount он монтируется и становится видимым
+
         axios.get(`https://randomuser.me/api/?page=${this.props.currentPage}&results=${this.props.pageSize}`).then(response => {
+            this.props.toogleIsFetching(true);
+            // для отображения статуса прелодера перед загрузкой данных
             console.log(response.data);
             this.props.setUsers(response.data.results);
+            this.props.toogleIsFetching(false);
             /*          console.log(response.data.results);
                         props.setUsers();
                         this.props.setUsers(response.data);
@@ -35,20 +47,28 @@ class UsersApiContainer  extends React.Component  {
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
         axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=${this.props.pageSize}`).then(response => {
+            this.props.toogleIsFetching(true);
             this.props.setUsers(response.data.results)
-        });};
+            this.props.toogleIsFetching(false);
+        });
+    };
 
-    render () {
+    render() {
 
-        return (
-            <Users totalUsersCount={this.props.totalUsersCount}
-                   pageSize = {this.props.pageSize}
-                   onPageChanged={this.onPageChanged}
-                   currentPage = {this.props.currentPage}
-                   users={this.props.users}
-                   follow={this.props.follow}
-                   unfollow={this.props.unfollow}
-            />)
+        return (<>
+
+                <Users totalUsersCount={this.props.totalUsersCount}
+                       pageSize={this.props.pageSize}
+                       onPageChanged={this.onPageChanged}
+                       currentPage={this.props.currentPage}
+                       users={this.props.users}
+                       follow={this.props.follow}
+                       unfollow={this.props.unfollow}
+                       isFetching={this.props.isFetching}
+                       toogleIsFetching={this.props.toogleIsFetching}
+                />
+            </>
+        )
     }
 };
 
@@ -63,11 +83,12 @@ const mapStateToProps = (state) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
             dispatch(followAC(userId))
@@ -80,8 +101,26 @@ const mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage: (pageNumber) => {
             dispatch(setCurrentPageAC(pageNumber))
+        },
+        toogleIsFetching: (isFetching) => {
+            dispatch(toogleIsFetchingAC(isFetching))
         }
-    }
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersApiContainer);
+    }
+};*/
+
+export default connect(mapStateToProps,
+    //action creators
+    {
+        follow,
+        unfollow,
+        setUsers,
+        setCurrentPage,
+        toogleIsFetching
+    }
+)(UsersApiContainer);
+
+/*
+export default connect(mapStateToProps,
+    mapDispatchToProps
+)(UsersApiContainer);*/
