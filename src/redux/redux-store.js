@@ -14,4 +14,7 @@ let reducers = combineReducers({
 
 let store = createStore(reducers);
 
+// позволяет просматриваит store in console
+window.store=store
+
 export default store;

@@ -28,6 +28,7 @@ class UsersApiContainer extends React.Component {
             console.log(response.data.results.map((i)=>{return (i.login.username)}));
             this.props.setUsers(response.data.results);
             this.props.toogleIsFetching(false);
+            console.log(response.data.results)
             /*          console.log(response.data.results);
                         props.setUsers();
                         this.props.setUsers(response.data);
