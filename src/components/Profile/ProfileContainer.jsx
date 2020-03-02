@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profilePageReducer";
+import {withRouter} from "react-router-dom";
 
 
 
@@ -13,12 +14,15 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
 
-        axios.get(`https://randomuser.me/api/?`).then(response => {
+        const userId = this.props.match.params.userId
+
+        axios.get(`https://randomuser.me/api/?`+ userId).then(response => {
             /*this.props.toogleIsFetching(true);*/
             this.props.setUserProfile(response.data.results);
          console.log(response.data.results)
         });
     }
+
 
     render () {
 
@@ -33,7 +37,7 @@ class ProfileContainer extends React.Component {
 }
 
 };
-
+debugger;
 const mapStateToProps = (state) => ({
 profile: state.profilePage.profile
 });
@@ -43,5 +47,5 @@ profile: state.profilePage.profile
     export default connect(mapStateToProps,
         // actioncreators (mapDispatchToProps)
         {setUserProfile}
-        )(ProfileContainer);
+        )(withRouter(ProfileContainer));
 

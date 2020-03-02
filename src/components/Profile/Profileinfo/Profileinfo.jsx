@@ -7,9 +7,14 @@ const Profileinfo=(props)=> {
 if (!props.profile) {
   return  <div></div>
 }
-
-    console.log(  props.profile.map((i)=>{return (i.picture.large)}))
     const imgRis = props.profile.map((i)=>{return (i.picture.large)})
+    const dataName = props.profile.map((i)=>{return (i.name)}).reduce((item, index, array)=>item)
+    console.log(  props.profile.map((i)=>{return (i.picture.large)}))
+    console.log(  props.profile.map((i)=>{return (i.picture)}))
+    console.log(  props.profile.map((i)=>{return (i.name)}))
+    console.log(  props.profile.map((i)=>{return (i.name.first)}))
+    console.log(  props.profile.map((i)=>{return (dataName)}))
+
 /*reduce((item, index, array)=>item вывел item из массива
     const imgRis = props.profile.map((i)=>{return (i.picture.large)}).reduce((item, index, array)=>item)*/
 
@@ -25,7 +30,7 @@ if (!props.profile) {
            </p>
 
             <div className={classes.descriptionsBlock}>
-                Description
+                <span>{dataName.first}   </span><span>   {dataName.last}</span>
             </div>
 
         </div>
