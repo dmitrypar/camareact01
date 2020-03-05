@@ -9,8 +9,8 @@ const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
 let initialState = {
     users: [],
     pageSize: 4,
-    totalUsersCount: 38,
-    currentPage: 3,
+    totalUsersCount: 12,
+    currentPage: 1,
     isFetching: true
 }
 

@@ -15,8 +15,15 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
 
         let userId = this.props.match.params.userId
-            // берет URS (которое формируется в navlink users)
-        // // и использует id для навигации
+
+        if (!userId) {
+            userId=1
+        }
+        /*    берет URS (которое формируется в navlink users)
+        и использует id для навигации
+         логика загрузки лежит в App Route path='/profile/:userId?'
+         '?' означает что /profile/:userId не строе правило и вслучае
+         отсутсвия рисуй id=1*/
 
         axios.get(`https://reqres.in/api/users/`+ userId).then(response => {
             /*this.props.toogleIsFetching(true);*/

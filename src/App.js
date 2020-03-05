@@ -33,7 +33,7 @@ const App = (props) => {
                                  newMessageBody = {props.state.dialogsPage.newMessageBody}
                                  dispatch={props.dispatch}*/
                         />}/>
-                    <Route path='/profile/:userId' render={() =>
+                    <Route path='/profile/:userId?' render={() =>
                         <ProfileContainer
                        /* profilePage={props.state.profilePage}
                         dispatch={props.dispatch}*/ />}/>

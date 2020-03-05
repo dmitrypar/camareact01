@@ -10,10 +10,7 @@ if (!props.profile) {
     const imgRis = props.profile.avatar
     const dataName = props.profile.first_name
     console.log(  props.profile)
-    console.log(  props.profile.avatar)
-    console.log(  props.profile.first_name)
-   /* console.log(  props.profile.map((i)=>{return (i)}))
-    console.log(  props.profile.map((i)=>{return (dataName)}))*/
+
 
 /*reduce((item, index, array)=>item вывел item из массива
     const imgRis = props.profile.map((i)=>{return (i.picture.large)}).reduce((item, index, array)=>item)*/
