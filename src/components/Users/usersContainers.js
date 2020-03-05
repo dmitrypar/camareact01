@@ -22,13 +22,35 @@ class UsersApiContainer extends React.Component {
         // после создания в конструкторе объекта он получает JSX разметку в рендере
         // и только в componentDidMount он монтируется и становится видимым
 
-        axios.get(`https://randomuser.me/api/?page=${this.props.currentPage}&results=${this.props.pageSize}`).then(response => {
+        /*axios.get(`https://randomuser.me/api/?page=${this.props.currentPage}&results=${this.props.pageSize}`).then(response => {
             this.props.toogleIsFetching(true);
             // для отображения статуса прелодера перед загрузкой данных
             console.log(response.data.results.map((i)=>{return (i.login.username)}));
             this.props.setUsers(response.data.results);
             this.props.toogleIsFetching(false);
             console.log(response.data.results)
+            /!*          console.log(response.data.results);
+                        props.setUsers();
+                        this.props.setUsers(response.data);
+                        https://fakedata.dev/users/v1/get_users?sp=0&av=f&sd=desc&is=256
+                        http://jsonplaceholder.typicode.com/users
+                        Pagination чтобы сформировать правильный запрос - нужно изучить какие есть запросы
+                        читать здесь https://randomuser.me/documentation#results
+                        например https://randomuser.me/api/?page=3&results=10
+                        getUsers = () => {
+                   if (this.props.users.length === 0) {
+                       //Error: Maximum update depth exceeded
+                   }
+               };*!/
+        })*/
+        axios.get(`https://reqres.in/api/users?page=1/*${this.props.currentPage}&results=${this.props.pageSize}*/`).then(response => {
+            console.log(response.data.data);
+                    this.props.toogleIsFetching(true);
+            // для отображения статуса прелодера перед загрузкой данных
+
+            this.props.setUsers(response.data.data);
+            this.props.toogleIsFetching(false);
+            console.log(response.data)
             /*          console.log(response.data.results);
                         props.setUsers();
                         this.props.setUsers(response.data);
@@ -43,13 +65,24 @@ class UsersApiContainer extends React.Component {
                    }
                };*/
         })
+
     };
 
-    onPageChanged = (pageNumber) => {
+
+
+   /* onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
         axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=${this.props.pageSize}`).then(response => {
             this.props.toogleIsFetching(true);
             this.props.setUsers(response.data.results)
+            this.props.toogleIsFetching(false);
+        });
+    };*/
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber)
+        axios.get(`https://reqres.in/api/users?page=${pageNumber}&results=${this.props.pageSize}`).then(response => {
+            this.props.toogleIsFetching(true);
+            this.props.setUsers(response.data.data)
             this.props.toogleIsFetching(false);
         });
     };

@@ -14,12 +14,15 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
 
-        const userId = this.props.match.params.userId
+        let userId = this.props.match.params.userId
+            // берет URS (которое формируется в navlink users)
+        // // и использует id для навигации
 
-        axios.get(`https://randomuser.me/api/?`+ userId).then(response => {
+        axios.get(`https://reqres.in/api/users/`+ userId).then(response => {
             /*this.props.toogleIsFetching(true);*/
-            this.props.setUserProfile(response.data.results);
-         console.log(response.data.results)
+            this.props.setUserProfile(response.data.data);
+         console.log(response.data.data)
+            console.log(this.props.match)
         });
     }
 

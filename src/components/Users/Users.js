@@ -29,8 +29,9 @@ const  Users  = (props) => {
                   <div >
                 <span>
                     <div>
-                        <NavLink to={'/profile/' + user.login.username}>
-                            <img src={user.picture.medium} className={styles.photo} key={user.id}/>
+                        <NavLink to={'/profile/' + user.id}>
+
+                            <img src={user.avatar} className={styles.photo} key={user.id}/>
                         </NavLink>
                     </div>
                     <div>
@@ -45,13 +46,13 @@ const  Users  = (props) => {
                 </span>
                   <span>
                     <span>
-                        <div>{user.name.first}</div>
+                        <div>{user.first_name}</div>
                         <div>{user.status}</div>
                         {/*<div>{user.name}</div>*/}
                     </span>
                     <span>
-                        <div>{user.location.city}</div>
-                        <div>{user.location.state}</div>
+                        {/*<div>{user.location.city}</div>
+                        <div>{user.location.state}</div>*/}
                         {/* <div>{user.address.city}</div>*/}
                     </span>
                 </span>
