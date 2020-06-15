@@ -1,7 +1,14 @@
+import {profileAPI} from "../api/api";
+
+
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
-
+const GET_PROFILE_STATUS = 'GET_PROFILE_STATUS';
+const UPDATE_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
+/*const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';*/
 
 let initialState = {
     postsData: [
@@ -9,7 +16,10 @@ let initialState = {
         {id: 2, message: 'Hlovoe soobshenie da', likesCount: 71}
     ],
     newPostText: '',
-    profile: null
+    profile: null,
+    followed: false,
+    statusMessage: '',
+    userId: '03'
 }
 
 
@@ -47,20 +57,110 @@ const profileReducer = (state = initialState, action) => {
         {
 
             return {...state,
-                profile: action.profile }
+                profile: action.profile ,
+                userId:  action.profile.id
+
+            }
 
         }
+
+        case 'GET_PROFILE_STATUS':
+        {
+
+            return {...state,
+                statusMessage: action.statusMessage }
+
+        }
+
+        case 'UPDATE_PROFILE_STATUS':
+        {
+
+            return {...state,
+                statusMessage: action.statusMessage }
+
+        }
+
 
         default:
             return state;
     }
-debugger;
-
-
 };
+
+export const setUserProfile = (userId) => {
+
+    return (dispatch) => {
+
+
+        /*    берет URS (которое формируется в navlink users)
+        и испол ьзует id для навигации
+         логика загрузки лежит в App Route path='/profile/:userId?'
+         '?' означает что /profile/:userId не строе правило и вслучае
+         отсутсвия рисуй id=1*/
+// осторожно работает THUNK!
+        profileAPI.getProfileUser(userId)
+
+            .then(response => {
+                //dispatch(toogleIsFetching(true));
+                dispatch(forSetUserProfile(response.data, response.data.id));
+
+                console.log(response)
+            });
+
+    }
+};
+
+
+export const updateStatusCreator= (userId,  statusMessage) =>
+{
+    return (dispatch)=>{
+
+
+        // асинхронный запрос ради которого создавался THUNK
+        profileAPI.updateStatus(userId, statusMessage)
+
+            .then(response => {
+
+                if(response.status===200){
+
+                    dispatch(updateStatusAC(userId,response.data.status))
+                }
+                    console.log('profilePageRaducer - response',response)
+            }
+
+            );
+
+    }
+}
+
+export const getStatusProfileCreator= (userId) =>
+{
+    return (dispatch)=>{
+
+
+        // асинхронный запрос ради которого создавался THUNK
+        profileAPI.getStatus(userId)
+            .then(response => {
+
+                    console.log(response.data.status)
+                    dispatch(getStatusProfileAC(response.data.status))
+
+            });
+
+    }
+
+}
+//debugger;
+
+
+
+
 
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const forSetUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const getStatusProfileAC = (statusMessage) => ({type: GET_PROFILE_STATUS, statusMessage});
+export const updateStatusAC = ( userId, statusMessage) => ({type: UPDATE_PROFILE_STATUS, userId, statusMessage});
+/*export const follow = (userId) => ({type: FOLLOW, userId});
+export const unfollow = (userId) => ({type: UNFOLLOW, userId});*/
 
 export default profileReducer;

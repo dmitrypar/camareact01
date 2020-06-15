@@ -3,6 +3,8 @@ import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../..
 import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
+import {withAuthRedirectHoc} from "../../hoc/withRedirectHoc";
+import {compose} from "redux";
 
 
 
@@ -64,7 +66,8 @@ let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         messagesData: state.dialogsPage.messagesData,
-        newMessageBody: state.dialogsPage.newMessageBody
+        newMessageBody: state.dialogsPage.newMessageBody,
+        Auth: state.auth.isAuth
         // (очищает вводимый текст)
     }
 };
@@ -85,9 +88,13 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-const DialogsContainer = connect (mapStateToProps, mapDispatchToProps )(Dialogs)
 
-export default DialogsContainer;
+
+
+export default compose(
+    connect (mapStateToProps, mapDispatchToProps ),
+    withAuthRedirectHoc
+)(Dialogs);
 
 
 

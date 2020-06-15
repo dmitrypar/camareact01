@@ -1,9 +1,11 @@
 import React from 'react';
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/profilePageReducer";
-import {withRouter} from "react-router-dom";
+import {getStatusProfileCreator, setUserProfile, updateStatusCreator} from "../../redux/profilePageReducer";
+import { withRouter} from "react-router-dom";
+import {withAuthRedirectHoc} from "../../hoc/withRedirectHoc";
+import {compose} from "redux";
+
 
 
 
@@ -12,50 +14,68 @@ import {withRouter} from "react-router-dom";
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    componentDidMount(props) {
 
-        let userId = this.props.match.params.userId
-
-        if (!userId) {
-            userId=1
-        }
-        /*    берет URS (которое формируется в navlink users)
-        и использует id для навигации
-         логика загрузки лежит в App Route path='/profile/:userId?'
-         '?' означает что /profile/:userId не строе правило и вслучае
-         отсутсвия рисуй id=1*/
-
-        axios.get(`https://reqres.in/api/users/`+ userId).then(response => {
-            /*this.props.toogleIsFetching(true);*/
-            this.props.setUserProfile(response.data.data);
-         console.log(response.data.data)
-            console.log(this.props.match)
-        });
+        let userId = this.props.match.params.userId;
+if(userId===(null||undefined)) {userId='03'}
+        this.props.setUserProfile(userId);
+        this.props.getStatusProfileCreator(userId);
+        //debugger;
+        console.log(this.props)
     }
+
 
 
     render () {
 
-    return (
-        <div>
-            <Profile
-                {...this.props}
-                profile={this.props.profile}
-            />
-        </div>
-    )
+
+
+        //if (this.props.Auth===false) return <Redirect to={'/login'}/>
+   return (
+
+
+            <div>
+                <Profile
+                    {...this.props}
+                    profile={this.props.profile}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                    statusMessage={this.props.statusMessage}
+                    updateStatusCreator={this.props.updateStatusCreator}
+                    userId={this.props.userNotUrlId}
+                />
+            </div>
+        )
+
+
 }
 
 };
-debugger;
+//debugger;
 const mapStateToProps = (state) => ({
-profile: state.profilePage.profile
+profile: state.profilePage.profile,
+    token: state.auth.acces_token,
+    folowed: state.profilePage.followed,
+    //Auth: state.auth.isAuth,
+    statusMessage: state.profilePage.statusMessage,
+    userNotUrlId: state.profilePage.userId
+
 });
 
 /*const mapDispatchToProps = (dispatch) => ({})*/
 
-    export default connect(mapStateToProps,
+//const ProfileWithRedirect = withAuthRedirectHoc(ProfileContainer);
+
+/*    export default connect(mapStateToProps,
         // actioncreators (mapDispatchToProps)
-        {setUserProfile}
-        )(withRouter(ProfileContainer));
+        {setUserProfile, follow,
+            unfollow}
+        )(withRouter(ProfileWithRedirect));*/
+
+
+export default compose(
+    connect(mapStateToProps, {setUserProfile, getStatusProfileCreator,updateStatusCreator}),
+        withRouter,
+        withAuthRedirectHoc
+    )(ProfileContainer)
 

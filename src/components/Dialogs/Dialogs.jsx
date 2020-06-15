@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
+import {Redirect} from "react-router-dom";
 
 
 
@@ -35,8 +36,16 @@ const Dialogs = (props) => {
         props.onNewMessageChange(event.target.value)
     };
 
+    //if (props.Auth === true) {return console.log(props.Auth)}
+    console.log(props.Auth)
+
+    /*if (props.Auth===false)
+    return <Redirect to={'/login'}/>*/
+    //console.log('false')
+
 
     return (
+
 
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
@@ -71,4 +80,4 @@ const Dialogs = (props) => {
 export default Dialogs;
 
 
-console.log(Dialogs);
+//console.log(Dialogs);

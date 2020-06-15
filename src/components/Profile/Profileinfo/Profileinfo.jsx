@@ -1,15 +1,16 @@
 import React from 'react';
 import classes from './Profileinfo.module.css';
+import ProfileStatus from "./ProfileStatus";
 
 
 const Profileinfo=(props)=> {
 
-if (!props.profile) {
-  return  <div></div>
+if (props.profile === null) {
+  return  <div> no data </div>
 }
-    const imgRis = props.profile.avatar
-    const dataName = props.profile.first_name
-    console.log(  props.profile)
+    const imgRis = props.profile.picture.large
+    const dataName = props.profile.name.first
+    //console.log(  props.profile)
 
 
 /*reduce((item, index, array)=>item вывел item из массива
@@ -25,6 +26,12 @@ if (!props.profile) {
            <p>
                <img src={imgRis} alt=""/>
            </p>
+
+                <ProfileStatus
+                    updateStatusCreator={props.updateStatusCreator}
+                    statusMessage={props.statusMessage}
+                    userId={props.userId}/>
+
 
             <div className={classes.descriptionsBlock}>
                 <span>{dataName}   </span>

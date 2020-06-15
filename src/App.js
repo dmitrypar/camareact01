@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Music from "./components/Music/Music";
 import {BrowserRouter, Route} from "react-router-dom";
@@ -8,6 +7,8 @@ import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/usersContainers";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 
 
@@ -17,12 +18,12 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 const App = (props) => {
 
 
-  debugger;
+
 
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
 
                 <div className='app-wrapper-content'>
@@ -33,13 +34,13 @@ const App = (props) => {
                                  newMessageBody = {props.state.dialogsPage.newMessageBody}
                                  dispatch={props.dispatch}*/
                         />}/>
-                    <Route path='/profile/:userId?' render={() =>
-                        <ProfileContainer
-                       /* profilePage={props.state.profilePage}
-                        dispatch={props.dispatch}*/ />}/>
+                    <Route path='/profile/users/:userId'  /* анализирует УРЛ на совпадение - например  /profile/users/ и в userId записывает все что указано после /profile/users/:*/
+                           render={() => <ProfileContainer/>}/>
+                    <Route path='/profile/' exact render={() => <ProfileContainer/>}/>
                     <Route path='/music' render={Music}/>
-                    <Route path='/users' render={()=> <UsersContainer/>}/>
+                    <Route path='/users' exact render={()=> <UsersContainer/>}/>
                     <Route path='/settings' render={Settings}/>
+                    <Route path='/login' render={Login}/>
                     {/*<Dialogs/>*/}
                     {/*<Profile/>*/}
                 </div>

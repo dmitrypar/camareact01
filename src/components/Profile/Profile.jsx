@@ -12,10 +12,18 @@ const Profile=(props)=> {
 {id: 2, message: 'Plovoe soobshenie da', likesCount: 71}
 ]*/
 
+//debugger;
 
     return (
     	<div>
-				<Profileinfo profile={props.profile}/>
+				<Profileinfo profile={props.profile}
+                             follow={props.follow}
+                             unfollow={props.unfollow}
+                             statusMessage={props.statusMessage}
+                             updateStatusCreator={props.updateStatusCreator}
+                             userId={props.userId}
+
+                />
                 <MyPostsContainer
                 /*       posts={props.profilePage.postsData}
                 newPostText={props.profilePage.newPostText}
