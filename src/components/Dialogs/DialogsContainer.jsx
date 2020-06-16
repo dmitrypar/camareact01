@@ -1,5 +1,5 @@
-import React from 'react';
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../redux/dialogsPageReducer";
+//import React from 'react';
+import {sendMessageActionCreator} from "../../redux/dialogsPageReducer";
 import Dialogs from "./Dialogs";
 
 import {connect} from "react-redux";
@@ -74,15 +74,9 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        onNewMessageChange: (value) => {
-            // передаем значение из тексареа в импортированный акшн креатор (сортировочный пункт)
-            // - бросаем вниз корзину c с открытой крышкой (скобки -реализация). импорт брок вниз -
-            //пропс диспатч - веревка корзины -поднять наверх в стор
-            // c балкона сторе с веревкой-пропс-диспатч сбросили корзину-с адресом апдейкреатор ,
-            // в корзину кладем эвент-текущее значение текс-эреа чтобы отправить в стор
-            dispatch(updateNewMessageBodyActionCreator(value)) },
-        onSendMessageClick: () => {
-            dispatch(sendMessageActionCreator())
+
+        onSendMessageClick: (dialogsTextarea) => {
+            dispatch(sendMessageActionCreator(dialogsTextarea))
         }
 
     }

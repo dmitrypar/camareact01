@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ProfileStatus.module.css';
+//import classes from './ProfileStatus.module.css';
 
 
 class ProfileStatus extends React.Component {

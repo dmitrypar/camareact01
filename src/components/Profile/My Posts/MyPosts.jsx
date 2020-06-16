@@ -25,8 +25,12 @@ let onPostChange = () => {
             <div className={classes.myPostBlock}>
                 <h3>My posts</h3>
                 <div>
-                    <textarea  ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
-                   <div><button onClick={addPosts}>Add post</button></div> 
+                    <div>
+                        <textarea  ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+                    </div>
+                   <div>
+                       <button onClick={addPosts}>Add post</button>
+                   </div>
                 </div>
                 <div className={classes.posts}>
                    {/* <Post 

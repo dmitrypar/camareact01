@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from '../Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+
 
 
 
@@ -8,7 +8,7 @@ import {NavLink} from "react-router-dom";
 
 const Message= (props) => {
 
-    let path="/dialogs/" + props.id;
+    //let path="/dialogs/" + props.id;
 
     return (
         <div className={classes.dialog}>

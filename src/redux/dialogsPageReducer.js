@@ -1,7 +1,5 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
-export const updateNewMessageBodyActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
+export const sendMessageActionCreator = (dialogsTextarea) => ({type: SEND_MESSAGE, dialogsTextarea});
 
 let InitialState = {
     dialogsData: [
@@ -18,7 +16,6 @@ let InitialState = {
 
     ],
 
-    newMessageBody: ''
 };
 
 const dialogsReducer = (state = InitialState, action) => {
@@ -26,20 +23,15 @@ const dialogsReducer = (state = InitialState, action) => {
     /*stateCopy.dialogsData = [...state.dialogsData];*/
 
     switch (action.type) {
-        case 'UPDATE_NEW_MESSAGE_BODY':
-            return {...state, newMessageBody: action.body};
-        /*        stateCopy.newMessageBody = action.body;
-                return stateCopy;*/
+
         case 'SEND_MESSAGE':
             /*  вытирание ячейки после нажатия отправить
              stateCopy.newMessageBody = "";
              stateCopy.messagesData = [...state.messagesData, {id: 5, message: body}];
             stateCopy.messagesData.push({id: 5, message: body});*/
-            let body = state.newMessageBody;
             return {
                 ...state,
-                newMessageBody: '',
-                messagesData: [...state.messagesData, {id: 5, message: body}]
+                messagesData: [...state.messagesData, {id: 5, message: action.dialogsTextarea}]
             };
 
         default:

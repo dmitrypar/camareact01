@@ -2,7 +2,8 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
-import {Redirect} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
+
 
 
 
@@ -19,34 +20,28 @@ const Dialogs = (props) => {
             <Message message={message.message} id={message.id}/>
     );
 
-    let onSendMessageClick = () => {
-        props.onSendMessageClick()
-
-    };
-
-    let newMessageBody = props.newMessageBody;
-    // (очищает вводимый текст)
-
-    let onNewMessageChange = (event) => {
-        // передаем значение из тексареа в импортированный акшн креатор (сортировочный пункт)
-        // - бросаем вниз корзину c с открытой крышкой (скобки -реализация). импорт брок вниз -
-        //пропс диспатч - веревка корзины -поднять наверх в стор
-        // c балкона сторе с веревкой-пропс-диспатч сбросили корзину-с адресом апдейкреатор ,
-        // в корзину кладем эвент-текущее значение текс-эреа чтобы отправить в стор
-        props.onNewMessageChange(event.target.value)
-    };
-
-    //if (props.Auth === true) {return console.log(props.Auth)}
-    console.log(props.Auth)
 
     /*if (props.Auth===false)
     return <Redirect to={'/login'}/>*/
-    //console.log('false')
 
+    const DialogsForm = (props) => {
+        return (
+            <form onSubmit={props.handleSubmit}>
+                <Field component={'textarea'} name={'dialogsTextarea'} />
+                <div>
+                    <button >Sent</button>
+                </div>
+            </form>
+        )
+    };
+
+    const DialogReduxForm = reduxForm({form: 'dialogsFormField'})(DialogsForm)
+
+    const onSubmit = (data) => {
+        props.onSendMessageClick(data.dialogsTextarea)
+    }
 
     return (
-
-
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 {dialogsElements}
@@ -57,20 +52,13 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 <div>{messagesElements}</div>
-                <div>
-                    <div><textarea onChange={onNewMessageChange} value={newMessageBody}/></div>
-                    <div>
-                        <button onClick={onSendMessageClick}>Sent</button>
-                    </div>
-                </div>
+                <DialogReduxForm onSubmit={onSubmit}/>
                 {/*<Message message={messagesData[0].message} id={messagesData[0].id}/>
 		<Message message={messagesData[1].message} id={messagesData[1].id}/>
 		<Message message={messagesData[2].message} id={messagesData[2].id}/>
 		<Message message={messagesData[3].message} id={messagesData[3].id}/> */}
             </div>
         </div>
-
-
     )
 
 
