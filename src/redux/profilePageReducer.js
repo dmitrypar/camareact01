@@ -1,9 +1,6 @@
 import {profileAPI} from "../api/api";
 
-
-
 const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_PROFILE_STATUS = 'GET_PROFILE_STATUS';
 const UPDATE_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
@@ -31,27 +28,14 @@ const profileReducer = (state = initialState, action) => {
         {
             let newPost = {
                 id: 3,
-                message: state.newPostText,
+                message: action.dialogsPostTextarea,
                 likesCount: 40
             };
-            //создаем поверхностную копию
-            let stateCopy = {...state};
-            /* state.postsData.push(newPost);*/
-            //!!![...state.postsData]!!! {...state.postsData} - иначе ошибка push not function
-            //создаем глубокую копию
-            stateCopy.postsData = [...state.postsData];
-            stateCopy.postsData.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
-        }
-
-        case 'UPDATE_NEW_POST_TEXT':
-            {
-                let stateCopy = {...state};
-                stateCopy.newPostText = action.newText;
-                return stateCopy;
-                /*this._callSubscriber(this._state)*/
+            return {
+                ...state,
+                postsData: [...state.postsData, newPost]
             }
+        }
 
         case 'SET_USER_PROFILE':
         {
@@ -155,8 +139,7 @@ export const getStatusProfileCreator= (userId) =>
 
 
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addPostActionCreator = (dialogsPostTextarea) => ({type: ADD_POST, dialogsPostTextarea});
 export const forSetUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const getStatusProfileAC = (statusMessage) => ({type: GET_PROFILE_STATUS, statusMessage});
 export const updateStatusAC = ( userId, statusMessage) => ({type: UPDATE_PROFILE_STATUS, userId, statusMessage});
