@@ -3,6 +3,8 @@ import classes from './Dialogs.module.css';
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+import {Textarea} from "../Commons/FieldControls/Fieldcontrols";
 
 
 
@@ -23,11 +25,12 @@ const Dialogs = (props) => {
 
     /*if (props.Auth===false)
     return <Redirect to={'/login'}/>*/
+const maxLengthCreator100 = maxLengthCreator(100)
 
     const DialogsForm = (props) => {
         return (
             <form onSubmit={props.handleSubmit}>
-                <Field component={'textarea'} name={'dialogsTextarea'} />
+                <Field component={Textarea} name={'dialogsTextarea'} validate={[required, maxLengthCreator100]} />
                 <div>
                     <button >Sent</button>
                 </div>
