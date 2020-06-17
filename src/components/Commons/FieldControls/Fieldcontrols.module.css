@@ -1,0 +1,12 @@
+/*между точками без пробелов!*/
+.formControl.error input,
+.formControl.error textarea
+{
+    border: solid red  3px  ;
+    background-color: #fffbe4;
+}
+
+.formControl.error span
+{
+   color: red;
+}
