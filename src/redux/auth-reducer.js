@@ -8,10 +8,11 @@ const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 let initialState = {
     userId: null,
     email: null,
-    password: null,
+    emailPlusPass: null,
     status: null,
     token: null,
-    isAuth: false
+    isAuth: false,
+    statusText: ''
 
 }
 
@@ -24,9 +25,11 @@ const authReducer = (state = initialState, action) => {
         case 'SET_AUTH_USER_DATA':
       return   {
             ...state,
-          email: action.res,
-          password: action.res,
-          isAuth: true
+          ...action.payload,
+          emailPlusPass: action.payload.config.data,
+          isAuth: true,
+          token: action.payload.data.access_token
+
         };
 
         default:
@@ -71,13 +74,13 @@ export function toLoginPostCreator (formData)  {
 
         profileAPI.toLogin(formData.email, formData.password)
 
-            .then((res) => {
+            .then((response) => {
 
                 console.log('profileAPI.toLogin', formData)
 
 
-                dispatch({type:SET_AUTH_USER_DATA, payload: res})
-                console.log(res)
+                dispatch({type:SET_AUTH_USER_DATA, payload: response})
+                console.log(response)
             })
         debugger;
         console.log('toLoginCreator', formData)
@@ -87,7 +90,7 @@ export function toLoginPostCreator (formData)  {
 
 
 // action creators
-export const setAuthUserData = (email, password) => ({type: SET_AUTH_USER_DATA, email, password });
+export const setAuthUserData = ({config, data, status, statusText}) => ({type: SET_AUTH_USER_DATA, payload: {config, data, status, statusText} });
 
 
 
