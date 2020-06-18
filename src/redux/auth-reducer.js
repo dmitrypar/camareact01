@@ -1,4 +1,5 @@
 import {profileAPI} from "../api/api";
+import * as axios from "redux-form";
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 
@@ -23,8 +24,8 @@ const authReducer = (state = initialState, action) => {
         case 'SET_AUTH_USER_DATA':
       return   {
             ...state,
-          email: action.response,
-          password: action.response,
+          email: action.res,
+          password: action.res,
           isAuth: true
         };
 
@@ -56,6 +57,30 @@ export const toLoginCreator= (email, password) => {
             })
         debugger;
         console.log('toLoginCreator', email, password)
+    }
+
+};
+
+
+
+export function toLoginPostCreator (formData)  {
+    debugger;
+    // window.onunload = function() { debugger; }
+    //console.log('toLoginCreator', formData)
+    return (dispatch)=>{
+
+        profileAPI.toLogin(formData.email, formData.password)
+
+            .then((res) => {
+
+                console.log('profileAPI.toLogin', formData)
+
+
+                dispatch({type:SET_AUTH_USER_DATA, payload: res})
+                console.log(res)
+            })
+        debugger;
+        console.log('toLoginCreator', formData)
     }
 
 };

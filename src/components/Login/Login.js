@@ -3,9 +3,12 @@ import {Field, reduxForm} from "redux-form";
 import {  required} from "../../utils/validators/validators";
 import {Input} from "../Commons/FieldControls/Fieldcontrols";
 import {profileAPI} from "../../api/api";
-import { toLoginCreator} from "../../redux/auth-reducer";
-import {connect} from "react-redux";
-import {addPostActionCreator} from "../../redux/profilePageReducer";
+import {toLoginCreator, toLoginPostCreator} from "../../redux/auth-reducer";
+import {connect} from "react-redux"
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+
+
 
 
 
@@ -38,14 +41,29 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = (reduxForm({form: 'loginForm'})(LoginForm));
 
+/*const LoginPost.js = (LoginData) => {
+    return         axios.post('http://localhost:8000/auth/login',
+        {email:LoginData.email, password: LoginData.password}
+    )
+        .then(response => {
+            this.props.setUsers(response);
+            console.log(response)
+        })
+};*/
+
+/*const LoginData = (formData) => {
+    return formData
+}*/
+
 
 
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-       // console.log(formData)
-        profileAPI.toLogin(formData.email, formData.password)
+        console.log(formData)
+        //profileAPI.toLogin(formData.email, formData.password)
         //props.toLoginCreator (formData)
+        props.toLoginPostCreator(formData);
 
     };
 
@@ -59,7 +77,7 @@ const Login = (props) => {
     )
 }
 
-export default Login
+//export default Login
 
 /*let mapDispatchToProps = (dispatch) => {
     return {
@@ -70,9 +88,15 @@ export default Login
     }
 };*/
 
-/*const mapStateToProps = (state) => ({
+const mapStatetoProps = (state) => ({
     //email: state.auth.email,
     //password: state.auth.password
-});*/
+});
 
-//export default connect(null, mapDispatchToProps)(Login)
+
+
+export default compose(
+    connect(mapStatetoProps, {toLoginPostCreator}),
+    // withAuthRedirectHoc
+    withRouter,
+)(Login)
