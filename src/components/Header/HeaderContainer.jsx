@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from "./Header";
 import {connect} from "react-redux"
-import { toLoginCreator} from "../../redux/auth-reducer";
 import {withAuthRedirectHoc} from "../../hoc/withRedirectHoc";
 import {compose} from "redux";
 import {getStatusProfileCreator, setUserProfile, updateStatusCreator} from "../../redux/profilePageReducer";
+import {toLogOutCreator} from "../../redux/auth-reducer";
 
 
 
@@ -49,12 +49,12 @@ class HeaderContainer extends React.Component {
 
 const mapStatetoProps = (state) => ({
     auth: state.auth.isAuth,
-    token: state.auth.access_token
+    email: state.auth.email
 });
 
 
 
 export default compose(
-    connect(mapStatetoProps, {toLoginCreator}),
+    connect(mapStatetoProps, {toLogOutCreator}),
    // withAuthRedirectHoc
 )(HeaderContainer)

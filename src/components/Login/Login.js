@@ -6,7 +6,7 @@ import {profileAPI} from "../../api/api";
 import {toLoginCreator, toLoginPostCreator} from "../../redux/auth-reducer";
 import {connect} from "react-redux"
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 
 
 
@@ -67,6 +67,10 @@ const Login = (props) => {
 
     };
 
+    if(props.Auth) {
+        return <Redirect to={'/profile'}/>
+    }
+
     return (
         <div>
             <div>
@@ -77,19 +81,12 @@ const Login = (props) => {
     )
 }
 
-//export default Login
 
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        toLoginCreator: (formData) => {
-            dispatch(toLoginCreator(formData));
-        }
 
-    }
-};*/
+
 
 const mapStatetoProps = (state) => ({
-    //email: state.auth.email,
+    Auth: state.auth.isAuth,
     //password: state.auth.password
 });
 

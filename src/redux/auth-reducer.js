@@ -2,6 +2,7 @@ import {profileAPI} from "../api/api";
 import * as axios from "redux-form";
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
+const DELETE_AUTH_USER_DATA = 'DELETE_AUTH_USER_DATA';
 
 
 
@@ -26,11 +27,21 @@ const authReducer = (state = initialState, action) => {
       return   {
             ...state,
           ...action.payload,
-          emailPlusPass: action.payload.config.data,
           isAuth: true,
-          token: action.payload.data.access_token
+          token: action.payload.data.access_token,
+          email: action.formData.email
 
         };
+
+
+        case 'DELETE_AUTH_USER_DATA':
+            return   {
+                ...state,
+                isAuth: false,
+                token: null,
+                email: null
+
+            };
 
         default:
             return state;
@@ -38,36 +49,10 @@ const authReducer = (state = initialState, action) => {
 
 };
 
-/*export const followAC = (userId) => ({type: FOLLOW, userId});
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const toogleIsFetchingAC = (isFetching) => ({type: TOOGLE_IS_FETCHING, isFetching});*/
-
-export const toLoginCreator= (email, password) => {
-    debugger;
-   // window.onunload = function() { debugger; }
-    //console.log('toLoginCreator', formData)
-    return (dispatch)=>{
-
-        profileAPI.toLogin(email, password)
-            .then(response => {
-
-                console.log('profileAPI.toLogin', email, password)
-
-
-                dispatch(setAuthUserData(response))
-            })
-        debugger;
-        console.log('toLoginCreator', email, password)
-    }
-
-};
-
 
 
 export function toLoginPostCreator (formData)  {
-    debugger;
+
     // window.onunload = function() { debugger; }
     //console.log('toLoginCreator', formData)
     return (dispatch)=>{
@@ -78,19 +63,40 @@ export function toLoginPostCreator (formData)  {
 
                 console.log('profileAPI.toLogin', formData)
 
+                if(response.statusText==='OK'){
+                    dispatch({type:SET_AUTH_USER_DATA, payload: response, formData})
+                }
 
-                dispatch({type:SET_AUTH_USER_DATA, payload: response})
-                console.log(response)
+
+                console.log(response);
+                console.log(response.statusText)
             })
-        debugger;
+
         console.log('toLoginCreator', formData)
     }
 
 };
 
 
+export function toLogOutCreator ()  {
+
+    // window.onunload = function() { debugger; }
+    //console.log('toLoginCreator', formData)
+    return (dispatch)=>{
+        dispatch({type:DELETE_AUTH_USER_DATA})
+        //profileAPI.toLogout()
+
+      /*      .then((response) => {
+                    dispatch({type:DELETE_AUTH_USER_DATA})
+                console.log(response.config.method);
+            })*/
+    }
+
+};
+
+
 // action creators
-export const setAuthUserData = ({config, data, status, statusText}) => ({type: SET_AUTH_USER_DATA, payload: {config, data, status, statusText} });
+export const setAuthUserData = ({config, data, status, statusText}, formData) => ({type: SET_AUTH_USER_DATA, payload: {config, data, status, statusText}, formData });
 
 
 
