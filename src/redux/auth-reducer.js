@@ -7,7 +7,7 @@ const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 let initialState = {
     userId: null,
     email: null,
-    login: null,
+    password: null,
     status: null,
     token: null,
     isAuth: false
@@ -23,7 +23,8 @@ const authReducer = (state = initialState, action) => {
         case 'SET_AUTH_USER_DATA':
       return   {
             ...state,
-          ...action.data,
+          email: action.response,
+          password: action.response,
           isAuth: true
         };
 
@@ -39,25 +40,29 @@ export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const toogleIsFetchingAC = (isFetching) => ({type: TOOGLE_IS_FETCHING, isFetching});*/
 
-export const toLoginCreator= () =>
-{
+export const toLoginCreator= (email, password) => {
+    debugger;
+   // window.onunload = function() { debugger; }
+    //console.log('toLoginCreator', formData)
     return (dispatch)=>{
 
-        profileAPI.toLogin()
+        profileAPI.toLogin(email, password)
             .then(response => {
 
-                // console.log(response.config.data)
+                console.log('profileAPI.toLogin', email, password)
 
-                const {data} = response;
-                dispatch(setAuthUserData(data))
+
+                dispatch(setAuthUserData(response))
             })
-
+        debugger;
+        console.log('toLoginCreator', email, password)
     }
+
 };
 
 
 // action creators
-export const setAuthUserData = (token) => ({type: SET_AUTH_USER_DATA, data: token });
+export const setAuthUserData = (email, password) => ({type: SET_AUTH_USER_DATA, email, password });
 
 
 

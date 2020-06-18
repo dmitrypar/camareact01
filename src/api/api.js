@@ -44,11 +44,21 @@ export const usersAPI = {
 
 export const profileAPI = {
 
-    toLogin() {
+/*    toLogin(email, password) {
         return instance.post(`auth/login`, {
-            email: "nilson@email.com",
-            password: "nilson"
+            email: 'nilson@email.com',
+            password: 'nilson'
         })
+    },*/
+
+    toLogin(email, password) {
+        return instance.post(`auth/login`,
+            {email:email, password: password}
+        )
+    },
+
+    toLogout() {
+        return instance.delete(`auth/login`)
     },
 
     getProfileUser(userId) {

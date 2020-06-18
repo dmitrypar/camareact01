@@ -142,12 +142,12 @@ export const unfollow= (userId) =>
             .then(response => {
                 if(response.status===200){
                     console.log(response.status)
-                    dispatch(getUsersUnFollow(userId))
+                    dispatch( getUsersUnFollow(userId))
                 }
-                console.log(response);
+                console.log('In dispatch',response);
                 dispatch(toogleFollowingIn(false, userId));
             });
-
+        console.log('out dispatch');
     }
 };
 
