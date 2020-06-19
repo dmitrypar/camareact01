@@ -9,49 +9,76 @@ import UsersContainer from "./components/Users/usersContainers";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {Loader} from "./components/Commons/Loader/Loader";
+import {toInitApp} from "./redux/app-reducer";
 
 
 
 
 
 
-const App = (props) => {
+class  App   extends React.Component {
 
 
+    componentDidMount(formData) {
 
+        toInitApp()
 
-    return (
-        <BrowserRouter>
-            <div className='app-wrapper'>
-                <HeaderContainer/>
-                <Navbar/>
+    }
 
-                <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render= {() =>
-                        <DialogsContainer
-                            /*dialogsData={props.state.dialogsPage.dialogsData}
-                                 messagesData={props.state.dialogsPage.messagesData}
-                                 newMessageBody = {props.state.dialogsPage.newMessageBody}
-                                 dispatch={props.dispatch}*/
-                        />}/>
-                    <Route path='/profile/users/:userId'  /* анализирует УРЛ на совпадение - например  /profile/users/ и в userId записывает все что указано после /profile/users/:*/
-                           render={() => <ProfileContainer/>}/>
-                    <Route path='/profile/' exact render={() => <ProfileContainer/>}/>
-                    <Route path='/music' render={Music}/>
-                    <Route path='/users' exact render={()=> <UsersContainer/>}/>
-                    <Route path='/settings' render={Settings}/>
-                    <Route path='/login' render={()=> <Login/>}/>
-                    {/*<Dialogs/>*/}
-                    {/*<Profile/>*/}
-                </div>
+    render () {
 
-            </div>
-        </BrowserRouter>
+        if (this.props.initApp){
+            return (
+                <BrowserRouter>
+                    <div className='app-wrapper'>
+                        <HeaderContainer/>
+                        <Navbar/>
 
-    );
+                        <div className='app-wrapper-content'>
+                            <Route path='/dialogs' render= {() =>
+                                <DialogsContainer
+                                    /*dialogsData={props.state.dialogsPage.dialogsData}
+                                         messagesData={props.state.dialogsPage.messagesData}
+                                         newMessageBody = {props.state.dialogsPage.newMessageBody}
+                                         dispatch={props.dispatch}*/
+                                />}/>
+                            <Route path='/profile/users/:userId'  /* анализирует УРЛ на совпадение - например  /profile/users/ и в userId записывает все что указано после /profile/users/:*/
+                                   render={() => <ProfileContainer/>}/>
+                            <Route path='/profile/' exact render={() => <ProfileContainer/>}/>
+                            <Route path='/music' render={Music}/>
+                            <Route path='/users' exact render={()=> <UsersContainer/>}/>
+                            <Route path='/settings' render={Settings}/>
+                            <Route path='/login' render={()=> <Login/>}/>
+                            {/*<Dialogs/>*/}
+                            {/*<Profile/>*/}
+                        </div>
+
+                    </div>
+                </BrowserRouter>
+            );
+        } else {
+            return (
+                <Loader/>
+                )
+
+        }
+
+    }
 };
 
 
-export default App;
+const mapStatetoProps = (state) => ({
+    auth: state.auth.isAuth,
+    initApp: state.appInit.initApp
+});
 
-console.log ();
+
+
+export default compose(
+    connect(mapStatetoProps, {toInitApp}),
+    // withAuthRedirectHoc
+)(App)
+
