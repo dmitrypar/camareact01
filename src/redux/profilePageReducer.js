@@ -108,7 +108,7 @@ export const updateStatusCreator= (userId,  statusMessage) =>
 
                     dispatch(updateStatusAC(userId,response.data.status))
                 }
-                    console.log('profilePageRaducer - response',response)
+                    //console.log('profilePageRaducer - response',response)
             }
 
             );
@@ -125,7 +125,6 @@ export const getStatusProfileCreator= (userId) =>
         profileAPI.getStatus(userId)
             .then(response => {
 
-                    console.log(response.data.status)
                     dispatch(getStatusProfileAC(response.data.status))
 
             });

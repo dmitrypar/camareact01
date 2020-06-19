@@ -17,7 +17,7 @@ class ProfileContainer extends React.Component {
     componentDidMount(props) {
 
         let userId = this.props.match.params.userId;
-if(userId===(null||undefined)) {userId='03'}
+if(userId===(null||undefined)) {userId=this.props.userNotUrlId}
         this.props.setUserProfile(userId);
         this.props.getStatusProfileCreator(userId);
         //debugger;

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Header.module.css';
 import {NavLink} from "react-router-dom";
-import {toLogOutCreator} from "../../redux/auth-reducer";
+
 
 
 const Header=(props)=> {
@@ -16,10 +16,12 @@ const Header=(props)=> {
         < img src = "https://png.pngtree.com/element_pic/16/11/02/bd886d7ccc6f8dd8db17e841233c9656.jpg" alt={'gg'}/>
             <div className={classes.loginBlock}>
 
-                {props.auth? `привет ${props.email}`:<NavLink to={'/login'}>Login </NavLink>}
-                <br/>
-               <button onClick={props.toLogOutCreator}>Logout</button>
 
+                <br/>
+
+                <div>
+                    {props.auth ? <div>привет {props.email}<button onClick={props.toLogOutCreator}>Logout</button></div> : <NavLink to={'/login'}>Login </NavLink>}
+                </div>
             </div>
 
         </header>

@@ -2,11 +2,11 @@ import React from 'react'
 import {Field, reduxForm} from "redux-form";
 import {  required} from "../../utils/validators/validators";
 import {Input} from "../Commons/FieldControls/Fieldcontrols";
-import {profileAPI} from "../../api/api";
-import {toLoginCreator, toLoginPostCreator} from "../../redux/auth-reducer";
+import { toLoginPostCreator} from "../../redux/auth-reducer";
 import {connect} from "react-redux"
 import {compose} from "redux";
 import {Redirect, withRouter} from "react-router-dom";
+import styles from "./../Commons/FieldControls/Fieldcontrols.module.css"
 
 
 
@@ -31,6 +31,9 @@ const LoginForm = (props) => {
             <div>
                 <Field  component={Input} name={'rememberMe'} type={'checkbox'} />remember me
             </div>
+            <div className={styles.someCommonError}>
+
+            </div>
             <div>
                 <button>Login</button>
             </div>
@@ -51,18 +54,14 @@ const LoginReduxForm = (reduxForm({form: 'loginForm'})(LoginForm));
         })
 };*/
 
-/*const LoginData = (formData) => {
-    return formData
-}*/
+
 
 
 
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        console.log(formData)
-        //profileAPI.toLogin(formData.email, formData.password)
-        //props.toLoginCreator (formData)
+       // console.log(formData)
         props.toLoginPostCreator(formData);
 
     };
@@ -87,7 +86,6 @@ const Login = (props) => {
 
 const mapStatetoProps = (state) => ({
     Auth: state.auth.isAuth,
-    //password: state.auth.password
 });
 
 

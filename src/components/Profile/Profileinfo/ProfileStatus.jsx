@@ -25,7 +25,7 @@ class ProfileStatus extends React.Component {
             editMode: false
         });
              this.props.updateStatusCreator(this.state.userId, this.state.profileStatus);
-        console.log('this.state', this.state);
+        //console.log('this.state', this.state);
     };
 
     onChangeStatus = (e)=> {
@@ -33,14 +33,14 @@ class ProfileStatus extends React.Component {
             profileStatus: e.currentTarget.value
 
         },
-        console.log('this.setState', e.currentTarget.value)
+        //console.log('this.setState', e.currentTarget.value)
         )
 
     };
 
 
     componentDidUpdate(prevState, prevProps) {
-        console.log("componentDidUpdate")
+        //console.log("componentDidUpdate")
         if(prevProps.statusMessage !== this.props.profileStatus) {
             this.setState({
                 profileStatus: this.props.statusMessage
@@ -51,12 +51,14 @@ class ProfileStatus extends React.Component {
 
     render() {
 
-        console.log("render")
+        //console.log("render")
 
         const SpanStatus = () => {
             return (
                 <div>
-                    <span onClick={this.switchModeUp}>{this.props.statusMessage}</span>
+                    {
+                        (this.props.statusMessage==='')? <span onClick={this.switchModeUp}>***</span> : <span onClick={this.switchModeUp}>{this.props.statusMessage}</span>
+                    }
                 </div>
             )
         };

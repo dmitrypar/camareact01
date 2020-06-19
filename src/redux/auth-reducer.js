@@ -1,5 +1,5 @@
 import {profileAPI} from "../api/api";
-import * as axios from "redux-form";
+import {stopSubmit} from "redux-form";
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 const DELETE_AUTH_USER_DATA = 'DELETE_AUTH_USER_DATA';
@@ -13,9 +13,10 @@ let initialState = {
     status: null,
     token: null,
     isAuth: false,
-    statusText: ''
+    statusText: '',
+    errorLogin: ''
 
-}
+};
 
 //debugger;
 
@@ -29,7 +30,8 @@ const authReducer = (state = initialState, action) => {
           ...action.payload,
           isAuth: true,
           token: action.payload.data.access_token,
-          email: action.formData.email
+          email: action.formData.email,
+          errorLogin: action.data
 
         };
 
@@ -50,29 +52,29 @@ const authReducer = (state = initialState, action) => {
 };
 
 
+// делает запрос на сервер (API) и закидывает ответ диспатчем в стор
+export function toLoginPostCreator (formData, props)  {
 
-export function toLoginPostCreator (formData)  {
-
-    // window.onunload = function() { debugger; }
-    //console.log('toLoginCreator', formData)
     return (dispatch)=>{
+
 
         profileAPI.toLogin(formData.email, formData.password)
 
             .then((response) => {
 
-                console.log('profileAPI.toLogin', formData)
+                //console.log('profileAPI.toLogin', formData)
 
                 if(response.statusText==='OK'){
                     dispatch({type:SET_AUTH_USER_DATA, payload: response, formData})
+
+                } else {
+                    console.log(response);
+                    dispatch({type:SET_AUTH_USER_DATA, data: response.statusCode})
+                    //dispatch(stopSubmit('email', {invalid: 'email is wrong'}))
                 }
-
-
-                console.log(response);
-                console.log(response.statusText)
             })
 
-        console.log('toLoginCreator', formData)
+        //console.log('toLoginCreator', formData)
     }
 
 };
@@ -80,8 +82,6 @@ export function toLoginPostCreator (formData)  {
 
 export function toLogOutCreator ()  {
 
-    // window.onunload = function() { debugger; }
-    //console.log('toLoginCreator', formData)
     return (dispatch)=>{
         dispatch({type:DELETE_AUTH_USER_DATA})
         //profileAPI.toLogout()
@@ -96,7 +96,7 @@ export function toLogOutCreator ()  {
 
 
 // action creators
-export const setAuthUserData = ({config, data, status, statusText}, formData) => ({type: SET_AUTH_USER_DATA, payload: {config, data, status, statusText}, formData });
+//export const setAuthUserData = ({config, data, status, statusText}, formData) => ({type: SET_AUTH_USER_DATA, payload: {config, data, status, statusText}, formData });
 
 
 
