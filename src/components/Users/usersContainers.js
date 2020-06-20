@@ -9,6 +9,14 @@ import {
     toogleIsFetching,
     unfollow
 } from "../../redux/usersPageReducer";
+import {
+    getAccesToken,
+    getcurrentPage, getfollowingInProgress,
+    getisFetching,
+    getpageSize,
+    gettotalUsersCount,
+    SuperSelectorUsersPage
+} from "./usersSelectors";
 
 
 
@@ -127,13 +135,13 @@ render()
 
 const mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        token: state.auth.acces_token,
-        followingInProgress: state.usersPage.followingInProgress
+        users: SuperSelectorUsersPage(state),
+        pageSize: getpageSize(state),
+        totalUsersCount: gettotalUsersCount(state),
+        currentPage: getcurrentPage(state),
+        isFetching: getisFetching(state),
+        token: getAccesToken(state),
+        followingInProgress: getfollowingInProgress(state)
 
     }
 };
