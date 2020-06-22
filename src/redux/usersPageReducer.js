@@ -82,24 +82,22 @@ const usersReducer = (state = initialState, action) => {
 
 export const getUsersThunkCreater= (currentPage, pageSize) =>
 {
-    return (dispatch)=>{
+    return async (dispatch)=>{
         // асинхронный запрос ради которого создавался THUNK
-    usersAPI.getUsers(currentPage, pageSize)
-        .then(data => {
+   const data = await usersAPI.getUsers(currentPage, pageSize)
             dispatch(toogleIsFetching(true));
             dispatch(setUsers(data));
             dispatch(toogleIsFetching(false));
-        })
 }
 };
 
 export const follow= (userId) =>
 {
-    return (dispatch)=>{
+    return async (dispatch)=>{
 
         dispatch(toogleFollowingIn(true, userId));
         // асинхронный запрос ради которого создавался THUNK
-        usersAPI.toFollow(userId)
+       const response = await usersAPI.toFollow(userId)
         /*const access_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pbHNvbkBlbWFpbC5jb20iLCJwYXNzd29yZCI6Im5pbHNvbiIsImlhdCI6MTU5MTY0MTk4NywiZXhwIjoxNjMxNjQxNTg3fQ.bFaBG0qczYzsb1FuriPI_v_FRG4FULwk8waW8IhngZE';
         axios.patch(
             `http://localhost:8000/folowed/${user.id}`,
@@ -110,15 +108,13 @@ export const follow= (userId) =>
                     Authorization: "Bearer "+access_token
                 }}
         )*/
-            .then(response => {
+
                 if(response.status===200){
                     console.log(response.status)
                     dispatch(getUsersFollow(userId))
                 }
                 console.log(response);
                 dispatch(toogleFollowingIn(false, userId));
-            });
-
     }
 };
 

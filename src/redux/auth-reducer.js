@@ -55,14 +55,9 @@ const authReducer = (state = initialState, action) => {
 // делает запрос на сервер (API) и закидывает ответ диспатчем в стор
 export function toLoginPostCreator (formData, props)  {
 
-    return (dispatch)=>{
+    return async (dispatch)=>{
 
-
-        profileAPI.toLogin(formData.email, formData.password)
-
-            .then((response) => {
-
-                //console.log('profileAPI.toLogin', formData)
+        const response = await profileAPI.toLogin(formData.email, formData.password);
 
                 if(response.statusText==='OK'){
                     dispatch({type:SET_AUTH_USER_DATA, payload: response, formData})
@@ -72,8 +67,6 @@ export function toLoginPostCreator (formData, props)  {
                     dispatch({type:SET_AUTH_USER_DATA, data: response.statusCode})
                     //dispatch(stopSubmit('email', {invalid: 'email is wrong'}))
                 }
-            })
-
         //console.log('toLoginCreator', formData)
     }
 

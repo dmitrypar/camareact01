@@ -96,23 +96,17 @@ export const setUserProfile = (userId) => {
 
 export const updateStatusCreator= (userId,  statusMessage) =>
 {
-    return (dispatch)=>{
+    return async (dispatch)=>{
 
 
         // асинхронный запрос ради которого создавался THUNK
-        profileAPI.updateStatus(userId, statusMessage)
-
-            .then(response => {
+       const response = await profileAPI.updateStatus(userId, statusMessage)
 
                 if(response.status===200){
 
                     dispatch(updateStatusAC(userId,response.data.status))
                 }
                     //console.log('profilePageRaducer - response',response)
-            }
-
-            );
-
     }
 }
 
