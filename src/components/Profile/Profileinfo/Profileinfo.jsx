@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Profileinfo.module.css';
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusHook from "./ProfileStatusHook";
 
 
 const Profileinfo=(props)=> {
@@ -27,7 +28,7 @@ if (props.profile === null) {
                <img src={imgRis} alt=""/>
            </p>
 
-                <ProfileStatus
+                <ProfileStatusHook
                     updateStatusCreator={props.updateStatusCreator}
                     statusMessage={props.statusMessage}
                     userId={props.userId}/>
