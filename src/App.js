@@ -10,9 +10,10 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {compose} from "redux";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {Loader} from "./components/Commons/Loader/Loader";
 import {toInitApp} from "./redux/app-reducer";
+import store from "./redux/redux-store";
 
 
 
@@ -69,6 +70,16 @@ class  App   extends React.Component {
     }
 };
 
+const SocialNet = () => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer  />
+            </Provider>
+
+        </BrowserRouter>
+    )
+}
 
 const mapStatetoProps = (state) => ({
     auth: state.auth.isAuth,
@@ -83,4 +94,4 @@ const mapStatetoProps = (state) => ({
 
 
 
-export default AppContainer
+export default SocialNet
