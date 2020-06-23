@@ -76,9 +76,11 @@ const mapStatetoProps = (state) => ({
 });
 
 
-
-export default compose(
+ const AppContainer = compose(
     connect(mapStatetoProps, {toInitApp}),
     // withAuthRedirectHoc
 )(App)
 
+
+
+export default AppContainer
