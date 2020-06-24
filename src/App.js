@@ -14,6 +14,7 @@ import {connect, Provider} from "react-redux";
 import {Loader} from "./components/Commons/Loader/Loader";
 import {toInitApp} from "./redux/app-reducer";
 import store from "./redux/redux-store";
+import withLazyLoader from "./hoc/withLazyloading";
 
 
 
@@ -39,13 +40,7 @@ class  App   extends React.Component {
                         <Navbar/>
 
                         <div className='app-wrapper-content'>
-                            <Route path='/dialogs' render= {() =>
-                                <DialogsContainer
-                                    /*dialogsData={props.state.dialogsPage.dialogsData}
-                                         messagesData={props.state.dialogsPage.messagesData}
-                                         newMessageBody = {props.state.dialogsPage.newMessageBody}
-                                         dispatch={props.dispatch}*/
-                                />}/>
+                            <Route path='/dialogs' render= {withLazyLoader(() => <DialogsContainer/>)}/>
                             <Route path='/profile/users/:userId'  /* анализирует УРЛ на совпадение - например  /profile/users/ и в userId записывает все что указано после /profile/users/:*/
                                    render={() => <ProfileContainer/>}/>
                             <Route path='/profile/' exact render={() => <ProfileContainer/>}/>
