@@ -14,16 +14,27 @@ import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
 
+   updateDataProfile() {
+       let userId = this.props.match.params.userId;
+       this.props.setUserProfile(userId);
+       this.props.getStatusProfileCreator(userId);
+       debugger;
+
+   }
+
     componentDidMount(props) {
 
-        let userId = this.props.match.params.userId;
-if(userId===(null||undefined)) {userId=this.props.userNotUrlId}
-        this.props.setUserProfile(userId);
-        this.props.getStatusProfileCreator(userId);
-        //debugger;
-        console.log(this.props)
+        this.updateDataProfile()
     }
 
+    // решило проблему ошибочного сообщения в статусе после посещения другого профиля - в статусе оставался статус предыдущего профиля
+    componentDidUpdate(prevProps, prevState) {
+if (this.props.match.params.userId!== prevProps.match.params.userId) {
+    this.updateDataProfile()
+
+}
+        debugger;
+    }
 
 
     render () {
