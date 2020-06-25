@@ -16,7 +16,7 @@ let initialState = {
     profile: null,
     followed: false,
     statusMessage: '',
-    userId: '03'
+    userId: '3'
 }
 
 

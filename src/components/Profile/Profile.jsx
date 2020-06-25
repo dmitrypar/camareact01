@@ -22,6 +22,7 @@ const Profile=(props)=> {
                              statusMessage={props.statusMessage}
                              updateStatusCreator={props.updateStatusCreator}
                              userId={props.userId}
+                             isOwner={props.isOwner}
 
                 />
                 <MyPostsContainer

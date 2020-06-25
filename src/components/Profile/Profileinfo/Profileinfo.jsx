@@ -24,6 +24,7 @@ if (props.profile === null) {
         <div className={classes.content}>
            <p>
                <img src={imgRis|| avaPhoto} alt=""/>
+               {!props.isOwner&&<input type={'file'}/>}
            </p>
 
                 <ProfileStatusHook

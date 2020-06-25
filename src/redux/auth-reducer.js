@@ -14,7 +14,8 @@ let initialState = {
     token: null,
     isAuth: false,
     statusText: '',
-    errorLogin: ''
+    errorLogin: '',
+    authIdProfile: null
 
 };
 
@@ -31,7 +32,8 @@ const authReducer = (state = initialState, action) => {
           isAuth: true,
           token: action.payload.data.access_token,
           email: action.formData.email,
-          errorLogin: action.data
+          errorLogin: action.data,
+          authIdProfile: action.payload.data.authenticatedId
 
         };
 
@@ -67,7 +69,7 @@ export function toLoginPostCreator (formData, props)  {
                     dispatch({type:SET_AUTH_USER_DATA, data: response.statusCode})
                     //dispatch(stopSubmit('email', {invalid: 'email is wrong'}))
                 }
-        //console.log('toLoginCreator', formData)
+        console.log('toLoginCreator', response)
     }
 
 };
