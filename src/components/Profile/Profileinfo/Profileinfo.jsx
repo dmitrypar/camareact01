@@ -20,7 +20,6 @@ if (props.profile === null) {
     };
 
 const isUserIdOwner= () =>{
-   // console.log('userId :', props.userId, 'authIdProfile :', props.authIdProfile, 'userIdInt ', userIdInt);
         if (userIdInt===props.authIdProfile) {
             return <input type={'file'} onChange={photoUploader}/>
         }

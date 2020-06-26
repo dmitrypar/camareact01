@@ -46,8 +46,7 @@ const profileReducer = (state = initialState, action) => {
             const addName = () =>{
                 if(state.profile===null){
                     return {
-                        profileName: action.profile.name.first,
-                        title: action.profile.name.title
+                        profileName: action.profile.name.first
                     }
                 }
             }
@@ -181,6 +180,7 @@ export const forSetUserProfile = (profile) => ({type: SET_USER_PROFILE, profile}
 export const getStatusProfileAC = (statusMessage) => ({type: GET_PROFILE_STATUS, statusMessage});
 export const updateStatusAC = ( userId, statusMessage) => ({type: UPDATE_PROFILE_STATUS, userId, statusMessage});
 export const updatePhotoAC = ( userId, payload) => ({type: UPDATE_PROFILE_PHOTO, userId, payload});
+//export const addOwnerAC = ( userId, payload) => ({type: ADD_OWNER_NAME, userId, payload});
 /*export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});*/
 
