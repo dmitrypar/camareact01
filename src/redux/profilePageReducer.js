@@ -4,6 +4,7 @@ const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_PROFILE_STATUS = 'GET_PROFILE_STATUS';
 const UPDATE_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
+const ADD_OWNER_NAME = 'ADD_OWNER_NAME';
 /*const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';*/
 
@@ -16,7 +17,9 @@ let initialState = {
     profile: null,
     followed: false,
     statusMessage: '',
-    userId: '3'
+    userId: '3',
+    profileNameAdd: undefined,
+
 }
 
 
@@ -38,13 +41,27 @@ const profileReducer = (state = initialState, action) => {
         }
 
         case 'SET_USER_PROFILE':
+
+            const addName = () =>{
+                if(state.profile===null){
+                    return {
+                        profileName: action.profile.name.first,
+                        title: action.profile.name.title
+                    }
+                }
+            }
+
         {
 
+
             return {...state,
+                profileNameAdd: addName(),
                 profile: action.profile ,
                 userId:  action.profile.id
 
+
             }
+
 
         }
 
@@ -61,6 +78,14 @@ const profileReducer = (state = initialState, action) => {
 
             return {...state,
                 statusMessage: action.statusMessage }
+
+        }
+
+        case 'ADD_OWNER_NAME':
+        {
+
+            return {...state,
+                profileName: state.profile.profileName }
 
         }
 
@@ -136,6 +161,7 @@ export const addPostActionCreator = (dialogsPostTextarea) => ({type: ADD_POST, d
 export const forSetUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const getStatusProfileAC = (statusMessage) => ({type: GET_PROFILE_STATUS, statusMessage});
 export const updateStatusAC = ( userId, statusMessage) => ({type: UPDATE_PROFILE_STATUS, userId, statusMessage});
+export const getOwnerNameAC = () => ({type: ADD_OWNER_NAME});
 /*export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});*/
 

@@ -48,6 +48,7 @@ if(userId===(null||undefined)) {userId=this.props.authIdProfile}
                     statusMessage={this.props.statusMessage}
                     updateStatusCreator={this.props.updateStatusCreator}
                     userId={this.props.userNotUrlId}
+                    authIdProfile={this.props.authIdProfile}
                 />
             </div>
         )
