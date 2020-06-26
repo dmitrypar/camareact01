@@ -69,7 +69,7 @@ export function toLoginPostCreator (formData, props)  {
                     dispatch({type:SET_AUTH_USER_DATA, data: response.statusCode})
                     //dispatch(stopSubmit('email', {invalid: 'email is wrong'}))
                 }
-        console.log('toLoginCreator', response)
+        //console.log('toLoginCreator', response)
     }
 
 };

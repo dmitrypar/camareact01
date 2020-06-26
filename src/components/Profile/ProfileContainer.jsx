@@ -1,7 +1,12 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatusProfileCreator, setUserProfile, updateStatusCreator} from "../../redux/profilePageReducer";
+import {
+    getStatusProfileCreator,
+    setUserProfile,
+    updatePhotoCreator,
+    updateStatusCreator
+} from "../../redux/profilePageReducer";
 import { withRouter} from "react-router-dom";
 import {withAuthRedirectHoc} from "../../hoc/withRedirectHoc";
 import {compose} from "redux";
@@ -21,7 +26,7 @@ if(userId===(null||undefined)) {userId=this.props.authIdProfile}
         this.props.setUserProfile(userId);
         this.props.getStatusProfileCreator(userId);
         //debugger;
-        console.log(this.props)
+       // console.log(this.props)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -49,6 +54,7 @@ if(userId===(null||undefined)) {userId=this.props.authIdProfile}
                     updateStatusCreator={this.props.updateStatusCreator}
                     userId={this.props.userNotUrlId}
                     authIdProfile={this.props.authIdProfile}
+                    updatePhotoCreator={this.props.updatePhotoCreator}
                 />
             </div>
         )
@@ -81,7 +87,7 @@ profile: state.profilePage.profile,
 
 
 export default compose(
-    connect(mapStateToProps, {setUserProfile, getStatusProfileCreator,updateStatusCreator}),
+    connect(mapStateToProps, {setUserProfile, getStatusProfileCreator,updateStatusCreator, updatePhotoCreator}),
         withRouter,
         withAuthRedirectHoc
     )(ProfileContainer)

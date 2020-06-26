@@ -83,6 +83,20 @@ export const profileAPI = {
                 status: statusMessage
             }
         )
+    },
+
+    updatePhoto(userId, photoFile) {
+        const formData = new FormData();
+        formData.append("image", photoFile);
+        return instance.put(
+            `photo/${userId}`, formData,
+            {
+                headers:
+                    {
+                        'Content-Type': 'multipart/ form-data'
+                    }
+            }
+        )
     }
 
 

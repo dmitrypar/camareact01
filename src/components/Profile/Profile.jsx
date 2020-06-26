@@ -23,6 +23,7 @@ const Profile=(props)=> {
                              updateStatusCreator={props.updateStatusCreator}
                              userId={props.userId}
                              authIdProfile={props.authIdProfile}
+                             updatePhotoCreator={props.updatePhotoCreator}
 
 
                 />

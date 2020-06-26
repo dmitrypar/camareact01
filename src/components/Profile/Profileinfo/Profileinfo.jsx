@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Profileinfo.module.css';
-import ProfileStatus from "./ProfileStatus";
 import ProfileStatusHook from "./ProfileStatusHook";
 import avaPhoto from './../../../assets/images/ava.jpg'
 
@@ -14,10 +13,16 @@ if (props.profile === null) {
     const dataName = props.profile.name.first
     //console.log(  props.profile)
     const userIdInt = Number.parseInt(props.userId);
-    const isUserIdOwner= () =>{
-    console.log('userId :', props.userId, 'authIdProfile :', props.authIdProfile, 'userIdInt ', userIdInt);
+
+    const photoUploader = (e) => {
+        if (e.target.files.length)
+        {props.updatePhotoCreator(e.target.files[0])}
+    };
+
+const isUserIdOwner= () =>{
+   // console.log('userId :', props.userId, 'authIdProfile :', props.authIdProfile, 'userIdInt ', userIdInt);
         if (userIdInt===props.authIdProfile) {
-            return <input type={'file'}/>
+            return <input type={'file'} onChange={photoUploader}/>
         }
     };
 
@@ -25,14 +30,13 @@ if (props.profile === null) {
 /*reduce((item, index, array)=>item вывел item из массива
     const imgRis = props.profile.map((i)=>{return (i.picture.large)}).reduce((item, index, array)=>item)*/
 
-    console.log(props)
+    //console.log(props)
     return (
     
         <div className={classes.content}>
            <p>
                <img src={imgRis|| avaPhoto} alt=""/>
                {isUserIdOwner()}
-
            </p>
 
                 <ProfileStatusHook

@@ -4,7 +4,8 @@ const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_PROFILE_STATUS = 'GET_PROFILE_STATUS';
 const UPDATE_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
-const ADD_OWNER_NAME = 'ADD_OWNER_NAME';
+//const ADD_OWNER_NAME = 'ADD_OWNER_NAME';
+const UPDATE_PROFILE_PHOTO = 'UPDATE_PROFILE_PHOTO';
 /*const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';*/
 
@@ -51,19 +52,13 @@ const profileReducer = (state = initialState, action) => {
                 }
             }
 
-        {
-
 
             return {...state,
                 profileNameAdd: addName(),
                 profile: action.profile ,
                 userId:  action.profile.id
-
-
             }
 
-
-        }
 
         case 'GET_PROFILE_STATUS':
         {
@@ -86,6 +81,14 @@ const profileReducer = (state = initialState, action) => {
 
             return {...state,
                 profileName: state.profile.profileName }
+
+        }
+
+        case 'UPDATE_PROFILE_PHOTO':
+        {
+
+            return {...state,
+                profilePhoto: action.payload }
 
         }
 
@@ -112,7 +115,7 @@ export const setUserProfile = (userId) => {
                 //dispatch(toogleIsFetching(true));
                 dispatch(forSetUserProfile(response.data, response.data.id));
 
-                console.log(response)
+                //console.log(response)
             });
 
     }
@@ -133,7 +136,7 @@ export const updateStatusCreator= (userId,  statusMessage) =>
                 }
                     //console.log('profilePageRaducer - response',response)
     }
-}
+};
 
 export const getStatusProfileCreator= (userId) =>
 {
@@ -150,7 +153,23 @@ export const getStatusProfileCreator= (userId) =>
 
     }
 
-}
+};
+
+export const updatePhotoCreator= (userId,  photoFile) =>
+{
+    return async (dispatch)=>{
+
+
+        // асинхронный запрос ради которого создавался THUNK
+        const response = await profileAPI.updatePhoto(userId, photoFile)
+
+        if(response.status===200){
+
+            dispatch(updatePhotoAC(userId,response.data.photo))
+        }
+        //console.log('profilePageRaducer - response',response)
+    }
+};
 //debugger;
 
 
@@ -161,7 +180,7 @@ export const addPostActionCreator = (dialogsPostTextarea) => ({type: ADD_POST, d
 export const forSetUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const getStatusProfileAC = (statusMessage) => ({type: GET_PROFILE_STATUS, statusMessage});
 export const updateStatusAC = ( userId, statusMessage) => ({type: UPDATE_PROFILE_STATUS, userId, statusMessage});
-export const getOwnerNameAC = () => ({type: ADD_OWNER_NAME});
+export const updatePhotoAC = ( userId, payload) => ({type: UPDATE_PROFILE_PHOTO, userId, payload});
 /*export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});*/
 
